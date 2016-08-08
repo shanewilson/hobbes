@@ -54,7 +54,7 @@ browser:
 	$(Q) wdio ${FDT_DIR}/dist/wdio.conf.js
 	@$(PRINT_OK)
 
-.PHONY: test
+.PHONY: test-watch
 test-watch: export BABEL_ENV=watch
 test-watch: export TEST_ENV=watch
 test-watch: test
