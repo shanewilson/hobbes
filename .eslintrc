@@ -1,5 +1,5 @@
 ---
-  extends: "./node_modules/eslint-config-airbnb/.eslintrc"
+  extends: "airbnb"
   parser: "babel-eslint"
   rules:
     strict: 0

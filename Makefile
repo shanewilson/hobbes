@@ -31,11 +31,11 @@ server-prod: build server
 .PHONY: server
 server: export NODE_ENV ?= development
 server:
-	$(Q) babel-node ${FDT_DIR}/server
+	$(Q) node ${FDT_DIR}/dist/server
 
 .PHONY: schema
 schema:
-	$(Q) babel-node ${FDT_DIR}/bin/updateRelaySchema
+	$(Q) node ${FDT_DIR}/dist/bin/updateRelaySchema
 
 .PHONY: install
 install:
@@ -46,12 +46,12 @@ install:
 build: export NODE_ENV ?= stage
 build: clean-dist
 	@$(PRINT_ENV)
-	$(Q) webpack --config ${FDT_DIR}/webpack.config.js
+	$(Q) webpack --config ${FDT_DIR}/dist/webpack.config.js
 	@$(PRINT_OK)
 
 .PHONY: browser
 browser:
-	$(Q) wdio ${FDT_DIR}/wdio.conf.js
+	$(Q) wdio ${FDT_DIR}/dist/wdio.conf.js
 	@$(PRINT_OK)
 
 .PHONY: test
@@ -72,7 +72,7 @@ test-once: test
 .PHONY: test
 test: export NODE_ENV ?= development
 test:
-	$(Q) karma start ${FDT_DIR}/karma.config.js
+	$(Q) karma start ${FDT_DIR}/dist/karma.config.js
 	@$(PRINT_OK)
 
 .PHONY: lint

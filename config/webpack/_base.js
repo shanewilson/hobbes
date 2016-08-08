@@ -22,21 +22,21 @@ export default {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: `${config.get('fdt_modules')}/babel-loader`,
+        loader: 'babel',
         exclude: ['node_modules'],
         include: `${config.get('dir_src')}/js`,
         query: {
           presets: [
-            `${config.get('fdt_modules')}/babel-preset-react`,
-            `${config.get('fdt_modules')}/babel-preset-es2015-webpack`,
-            `${config.get('fdt_modules')}/babel-preset-stage-0`,
+            'react',
+            ['es2015', { modules: false }],
+            'stage-0',
           ],
           env: {
             development: {
               plugins: [
                 babelRelayPlugin,
-                'react-hot-loader/babel'
-              ]
+                'react-hot-loader/babel',
+              ],
             },
             stage: { plugins: [babelRelayPlugin] },
             production: { plugins: [babelRelayPlugin] },
@@ -45,10 +45,10 @@ export default {
             ci: {
               plugins: [
                 babelRelayPlugin,
-                `${config.get('fdt_modules')}/babel-plugin-istanbul`
-              ]
+                'istanbul',
+              ],
             },
-          }
+          },
         },
       },
       {
