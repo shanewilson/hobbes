@@ -16,9 +16,11 @@ var _ = require('../');
 
 var _2 = _interopRequireDefault(_);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _babel = require('../babel');
 
-var babelRelayPlugin = _path2.default.join(__dirname, 'plugins', 'babelRelayPlugin');
+var _babel2 = _interopRequireDefault(_babel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
   target: 'web',
@@ -38,22 +40,8 @@ exports.default = {
       test: /\.jsx?$/,
       loader: 'babel',
       exclude: ['node_modules'],
-      include: _2.default.get('dir_src') + '/js',
-      query: {
-        presets: ['react', ['es2015', { modules: false }], 'stage-0'],
-        env: {
-          development: {
-            plugins: [babelRelayPlugin, 'react-hot-loader/babel']
-          },
-          stage: { plugins: [babelRelayPlugin] },
-          production: { plugins: [babelRelayPlugin] },
-          single: { plugins: [babelRelayPlugin] },
-          watch: { plugins: [] },
-          ci: {
-            plugins: [babelRelayPlugin, 'istanbul']
-          }
-        }
-      }
+      include: `${ _2.default.get('dir_src') }/js`,
+      query: _babel2.default
     }, {
       test: /\.json$/,
       loader: 'json'
@@ -80,3 +68,4 @@ exports.default = {
     __BASE__: JSON.stringify(_2.default.get('globals').__BASE__)
   })]
 };
+module.exports = exports['default'];

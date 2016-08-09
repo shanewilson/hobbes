@@ -2,8 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 
 import config from '../';
-
-const babelRelayPlugin = path.join(__dirname, 'plugins', 'babelRelayPlugin');
+import babel from '../babel';
 
 export default {
   target: 'web',
@@ -25,31 +24,7 @@ export default {
         loader: 'babel',
         exclude: ['node_modules'],
         include: `${config.get('dir_src')}/js`,
-        query: {
-          presets: [
-            'react',
-            ['es2015', { modules: false }],
-            'stage-0',
-          ],
-          env: {
-            development: {
-              plugins: [
-                babelRelayPlugin,
-                'react-hot-loader/babel',
-              ],
-            },
-            stage: { plugins: [babelRelayPlugin] },
-            production: { plugins: [babelRelayPlugin] },
-            single: { plugins: [babelRelayPlugin] },
-            watch: { plugins: [] },
-            ci: {
-              plugins: [
-                babelRelayPlugin,
-                'istanbul',
-              ],
-            },
-          },
-        },
+        query: babel,
       },
       {
         test: /\.json$/,

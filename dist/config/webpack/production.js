@@ -20,8 +20,6 @@ var _stage2 = _interopRequireDefault(_stage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 exports.default = _extends({}, _stage2.default, {
   bail: true,
   debug: false,
@@ -30,23 +28,20 @@ exports.default = _extends({}, _stage2.default, {
   output: _extends({}, _stage2.default.output, {
     pathInfo: false
   }),
-  plugins: [].concat(_toConsumableArray(_stage2.default.plugins), [new _webpack2.default.LoaderOptionsPlugin({
+  plugins: [..._stage2.default.plugins, new _webpack2.default.LoaderOptionsPlugin({
     minimize: true,
     debug: false
   }), new _webpack2.default.optimize.DedupePlugin(), new _webpack2.default.optimize.UglifyJsPlugin({
-    mangle: {
-      except: ['require', 'export', '$super']
-    },
     compress: {
-      warnings: false,
-      sequences: true,
-      dead_code: true,
-      conditionals: true,
-      booleans: true,
-      unused: true,
-      if_return: true,
-      join_vars: true,
-      drop_console: false
+      screw_ie8: true,
+      warnings: false
+    },
+    mangle: {
+      screw_ie8: true
+    },
+    output: {
+      comments: false,
+      screw_ie8: true
     }
   }), new _compressionWebpackPlugin2.default({
     asset: '[path].gz[query]',
@@ -54,5 +49,6 @@ exports.default = _extends({}, _stage2.default, {
     test: /\.js$|\.html$/,
     threshold: 10240,
     minRatio: 0.8
-  })])
+  })]
 });
+module.exports = exports['default'];

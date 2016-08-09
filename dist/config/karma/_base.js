@@ -20,11 +20,9 @@ var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+const KARMA_ENTRY_FILE = 'karma.entry.js';
 
-var KARMA_ENTRY_FILE = 'karma.entry.js';
-
-exports.default = function (config) {
+exports.default = config => {
   config.set({
     browsers: ['Chrome_with_debugging'],
 
@@ -40,7 +38,9 @@ exports.default = function (config) {
     // 'node_modules/babel-polyfill/dist/polyfill.js',
     KARMA_ENTRY_FILE],
     // run the bundle through the webpack and sourcemap plugins
-    preprocessors: _defineProperty({}, KARMA_ENTRY_FILE, ['webpack', 'sourcemap']),
+    preprocessors: {
+      [KARMA_ENTRY_FILE]: ['webpack', 'sourcemap']
+    },
     frameworks: ['chai-sinon', 'mocha'],
     reporters: ['mocha'],
     mochaReporter: {
@@ -70,3 +70,5 @@ exports.default = function (config) {
 
   return config;
 };
+
+module.exports = exports['default'];

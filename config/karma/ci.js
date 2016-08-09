@@ -1,4 +1,3 @@
-import path from 'path';
 import configSettings from '../';
 
 // Browsers to run on Sauce Labs
@@ -61,7 +60,7 @@ export const customLaunchers = {
 };
 
 export default config => {
-  const single = require('./single').default(config);
+  const single = require('./single')(config);
 
   config.set({
     ...single,
@@ -74,12 +73,12 @@ export default config => {
     reporters: [
       ...single.reporters,
       'coverage',
-      'saucelabs'
+      'saucelabs',
     ],
     plugins: [
       ...single.plugins,
       'karma-sauce-launcher',
-      'karma-coverage'
+      'karma-coverage',
     ],
     sauceLabs: {
       testName: 'Unit Tests',
@@ -99,7 +98,7 @@ export default config => {
       reporters: [
         { type: 'lcov', subdir: '.', file: 'lcov.info' },
       ],
-    }
+    },
   });
 
   return config;

@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 
 import config from '../';
 import webpackConfig from './_base';
@@ -27,6 +28,7 @@ export default {
     ],
   },
   plugins: [
+    new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     ...webpackConfig.plugins,
   ],

@@ -1,5 +1,5 @@
 export default config => {
-  const base = require('./_base').default(config);
+  const base = require('./_base')(config);
 
   config.set({
     ...base,
