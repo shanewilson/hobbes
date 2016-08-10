@@ -9,7 +9,7 @@ var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
-var _webpackDevServer = require('./bin/webpack-dev-server');
+var _webpackDevServer = require('./bin/webpackDevServer');
 
 var _webpackDevServer2 = _interopRequireDefault(_webpackDevServer);
 

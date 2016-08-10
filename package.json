@@ -96,11 +96,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "NODE_ENV=development make -j test server",
-    "server:dev": "NODE_ENV=development make server",
-    "server:stage": "NODE_ENV=stage make build server",
-    "server:prod": "NODE_ENV=production make build server",
-    "build": "make build",
-    "test": "make prepare"
+    "build": "rm -rf dist && babel . -d dist --ignore node_modules"
   }
 }

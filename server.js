@@ -2,7 +2,7 @@
 
 import chalk from 'chalk';
 import config from './config';
-import devServer from './bin/webpack-dev-server';
+import devServer from './bin/webpackDevServer';
 
 const host = config.get('webpack_host');
 const port = config.get('webpack_port');
