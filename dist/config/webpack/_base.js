@@ -33,12 +33,13 @@ function getDirectories(srcpath) {
     return _gracefulFs2.default.statSync(_path2.default.join(srcpath, file)).isDirectory();
   });
 }
+
 const dirs = getDirectories(_path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js')));
+
 const alias = dirs.reduce((acc, d) => _extends({}, acc, {
   [d]: _path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js', d))
 }), {});
-console.log(dirs);
-console.log(alias);
+
 exports.default = {
   target: 'web',
   devtool: '#source-map',
