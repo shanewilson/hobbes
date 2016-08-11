@@ -1,8 +1,22 @@
 import path from 'path';
 import webpack from 'webpack';
+import fs from 'graceful-fs';
 
 import config from '../';
 import babel from '../babel';
+
+function getDirectories(srcpath) {
+  return fs.readdirSync(srcpath).filter(file => {
+    return fs.statSync(path.join(srcpath, file)).isDirectory();
+  });
+}
+
+const dirs = getDirectories(path.resolve(path.join(config.get('dir_src'), 'js')));
+
+const alias = dirs.reduce((acc, d) => ({
+  ...acc,
+  [d]: path.resolve(path.join(config.get('dir_src'), 'js', d)),
+}), {});
 
 export default {
   target: 'web',
@@ -38,10 +52,7 @@ export default {
     modules: ['node_modules'],
     alias: {
       react: path.resolve(path.join(config.get('path_project'), 'node_modules', 'react')),
-      routes: path.resolve(path.join(config.get('dir_src'), 'js', 'routes')),
-      components: path.resolve(path.join(config.get('dir_src'), 'js', 'components')),
-      containers: path.resolve(path.join(config.get('dir_src'), 'js', 'containers')),
-      mutations: path.resolve(path.join(config.get('dir_src'), 'js', 'mutations')),
+      ...alias,
     },
   },
   plugins: [

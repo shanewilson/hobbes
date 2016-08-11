@@ -5,6 +5,7 @@
     no-underscore-dangle: 0
     import/no-unresolved: 0
     import/no-extraneous-dependencies: 0
+    react/require-extension: 0
   env:
     browser: true
     mocha: true
