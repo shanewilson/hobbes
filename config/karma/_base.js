@@ -1,6 +1,7 @@
+import path from 'path';
+
 import configSettings from '..';
 import webpack from '../webpack/development';
-import path from 'path';
 
 const KARMA_ENTRY_FILE = 'karma.entry.js';
 
@@ -19,7 +20,7 @@ export default config => {
     },
     // karma only needs to know about the test bundle
     files: [
-      // 'node_modules/babel-polyfill/dist/polyfill.js',
+      'node_modules/babel-polyfill/dist/polyfill.js',
       KARMA_ENTRY_FILE,
     ],
     // run the bundle through the webpack and sourcemap plugins

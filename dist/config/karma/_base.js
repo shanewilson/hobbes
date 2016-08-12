@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 var _ = require('..');
 
 var _2 = _interopRequireDefault(_);
@@ -13,10 +17,6 @@ var _2 = _interopRequireDefault(_);
 var _development = require('../webpack/development');
 
 var _development2 = _interopRequireDefault(_development);
-
-var _path = require('path');
-
-var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36,9 +36,7 @@ exports.default = function (config) {
       }
     },
     // karma only needs to know about the test bundle
-    files: [
-    // 'node_modules/babel-polyfill/dist/polyfill.js',
-    KARMA_ENTRY_FILE],
+    files: ['node_modules/babel-polyfill/dist/polyfill.js', KARMA_ENTRY_FILE],
     // run the bundle through the webpack and sourcemap plugins
     preprocessors: _defineProperty({}, KARMA_ENTRY_FILE, ['webpack', 'sourcemap']),
     frameworks: ['chai-sinon', 'mocha'],
