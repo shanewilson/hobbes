@@ -14,7 +14,9 @@ var _ = require('../');
 
 var _2 = _interopRequireDefault(_);
 
-var _ci = require('../karma/ci');
+var _customLaunchers = require('../karma/customLaunchers');
+
+var _customLaunchers2 = _interopRequireDefault(_customLaunchers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25,7 +27,7 @@ const baseCapability = {
   'idle-timeout': 30000
 };
 
-const capabilities = Object.keys(_ci.customLaunchers).map(k => _extends({}, _ci.customLaunchers[k], baseCapability));
+const capabilities = Object.keys(_customLaunchers2.default).map(k => _extends({}, _customLaunchers2.default[k], baseCapability));
 
 exports.default = {
 
