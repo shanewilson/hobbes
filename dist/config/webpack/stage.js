@@ -32,23 +32,25 @@ var _base2 = _interopRequireDefault(_base);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const LIBS_BUNDLE = 'libs';
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var LIBS_BUNDLE = 'libs';
 
 exports.default = _extends({}, _base2.default, {
-  entry: _extends({}, _base2.default.entry, {
-    [LIBS_BUNDLE]: _2.default.get('dependencies')
-  }),
+  entry: _extends({}, _base2.default.entry, _defineProperty({}, LIBS_BUNDLE, _2.default.get('dependencies'))),
   output: _extends({}, _base2.default.output, {
     filename: '[name].[hash].js',
     chunkFilename: '[id].js'
   }),
-  plugins: [..._base2.default.plugins, new _webpack2.default.optimize.CommonsChunkPlugin(LIBS_BUNDLE), new _webpack2.default.optimize.AggressiveMergingPlugin(), new _htmlWebpackPlugin2.default({
+  plugins: [].concat(_toConsumableArray(_base2.default.plugins), [new _webpack2.default.optimize.CommonsChunkPlugin(LIBS_BUNDLE), new _webpack2.default.optimize.AggressiveMergingPlugin(), new _htmlWebpackPlugin2.default({
     template: _path2.default.resolve(_path2.default.join(_2.default.get('path_project'), 'src', 'index.html')),
     filename: '../index.html',
     inject: 'body',
     minify: {
       collapseWhitespace: true
     }
-  }), new _htmlRemove2.default()]
+  }), new _htmlRemove2.default()])
 });
 module.exports = exports['default'];

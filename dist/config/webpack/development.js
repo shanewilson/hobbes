@@ -24,7 +24,9 @@ var _base2 = _interopRequireDefault(_base);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const devServer = {
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var devServer = {
   contentBase: _2.default.get('dir_src'),
   stats: {
     colors: true,
@@ -39,9 +41,9 @@ const devServer = {
 
 exports.default = _extends({}, _base2.default, {
   entry: _extends({}, _base2.default.entry, {
-    bundle: ['webpack-hot-middleware/client?reload=true', 'react-hot-loader/patch', ..._base2.default.entry.bundle]
+    bundle: ['webpack-hot-middleware/client?reload=true', 'react-hot-loader/patch'].concat(_toConsumableArray(_base2.default.entry.bundle))
   }),
-  plugins: [new _caseSensitivePathsWebpackPlugin2.default(), new _webpack2.default.HotModuleReplacementPlugin(), ..._base2.default.plugins],
-  devServer
+  plugins: [new _caseSensitivePathsWebpackPlugin2.default(), new _webpack2.default.HotModuleReplacementPlugin()].concat(_toConsumableArray(_base2.default.plugins)),
+  devServer: devServer
 });
 module.exports = exports['default'];

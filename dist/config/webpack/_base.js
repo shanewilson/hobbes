@@ -28,13 +28,19 @@ var _babel2 = _interopRequireDefault(_babel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const getDirectories = srcpath => _gracefulFs2.default.readdirSync(srcpath).filter(file => _gracefulFs2.default.statSync(_path2.default.join(srcpath, file)).isDirectory());
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-const dirs = getDirectories(_path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js')));
+var getDirectories = function getDirectories(srcpath) {
+  return _gracefulFs2.default.readdirSync(srcpath).filter(function (file) {
+    return _gracefulFs2.default.statSync(_path2.default.join(srcpath, file)).isDirectory();
+  });
+};
 
-const alias = dirs.reduce((acc, d) => _extends({}, acc, {
-  [d]: _path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js', d))
-}), {});
+var dirs = getDirectories(_path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js')));
+
+var alias = dirs.reduce(function (acc, d) {
+  return _extends({}, acc, _defineProperty({}, d, _path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js', d))));
+}, {});
 
 exports.default = {
   target: 'web',
@@ -54,7 +60,7 @@ exports.default = {
       test: /\.jsx?$/,
       loader: 'babel',
       exclude: ['node_modules'],
-      include: `${ _2.default.get('dir_src') }/js`,
+      include: _2.default.get('dir_src') + '/js',
       query: _babel2.default
     }, {
       test: /\.json$/,
