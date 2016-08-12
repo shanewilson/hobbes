@@ -122,6 +122,7 @@ travis-after-success:
 .PHONY: travis-docker-upload
 travis-docker-upload:
 ifdef DOCKER_IMAGE
+	docker login -e=${DOCKER_EMAIL} -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} quay.io
 	docker build -t ${DOCKER_IMAGE} .
 
 ifeq ($(TRAVIS_PULL_REQUEST), false)
