@@ -109,6 +109,7 @@ upgrade:
 travis-before-script:
 	export DISPLAY=:99.0
 	sh -e /etc/init.d/xvfb start
+	NODE_ENV=production make build
 	sleep 3
 
 .PHONY: travis-script
