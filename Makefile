@@ -124,15 +124,20 @@ travis-docker-upload:
 ifdef DOCKER_IMAGE
 	docker login -e=${DOCKER_EMAIL} -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} quay.io
 	docker build -t ${DOCKER_IMAGE} .
-
 ifeq ($(TRAVIS_PULL_REQUEST), false)
+ifeq ($(TRAVIS_BRANCH), master)
+	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:stable
+	docker push quay.io/ncigdc/${DOCKER_IMAGE}:stable
+else ifeq ($(TRAVIS_BRANCH), develop)
+	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:latest
+	docker push quay.io/ncigdc/${DOCKER_IMAGE}:latest
+else
 	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
 	docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
-
+endif
 ifdef TRAVIS_TAG
 	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
-  docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
-
+	docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
 endif
 endif
 endif
