@@ -5,11 +5,11 @@ import fs from 'graceful-fs';
 import config from '../';
 import babel from '../babel';
 
-function getDirectories(srcpath) {
-  return fs.readdirSync(srcpath).filter(file => {
-    return fs.statSync(path.join(srcpath, file)).isDirectory();
-  });
-}
+const getDirectories = srcpath => (
+  fs.readdirSync(srcpath).filter(file => (
+    fs.statSync(path.join(srcpath, file)).isDirectory()
+  ))
+);
 
 const dirs = getDirectories(path.resolve(path.join(config.get('dir_src'), 'js')));
 

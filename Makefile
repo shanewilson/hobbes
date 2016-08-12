@@ -17,8 +17,9 @@ PRINT_OK = printf "$@ $(OK_STRING)\n" | $(AWK_CMD)
 NODE_ENV_STRING = $(OK_COLOR)[$(NODE_ENV)]$(NO_COLOR)
 PRINT_ENV = printf "$@ $(NODE_ENV_STRING)\n" | $(AWK_CMD)
 
+
+all: install lint test-once build
 .PHONY: all
-all: install dist
 
 .PHONY: server-stage
 server-stage: export NODE_ENV = stage
@@ -103,3 +104,33 @@ update:
 upgrade:
 	$(Q) david update
 	@$(PRINT_OK)
+
+.PHONY: travis-before-script
+travis-before-script:
+	export DISPLAY=:99.0
+	sh -e /etc/init.d/xvfb start
+	sleep 3
+
+.PHONY: travis-script
+travis-script: lint test-ci
+
+.PHONY: travis-after-success
+travis-after-success:
+	bash <(curl -s https://codecov.io/bash)
+
+.PHONY: travis-docker-upload
+travis-docker-upload:
+ifdef DOCKER_IMAGE
+	docker build -t ${DOCKER_IMAGE} .
+
+ifeq ($(TRAVIS_PULL_REQUEST), false)
+	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_BRANCH/\//-}
+	docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_BRANCH/\//-}
+
+ifndef TRAVIS_TAG
+	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
+  docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
+
+endif
+endif
+endif
