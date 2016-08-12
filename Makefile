@@ -125,8 +125,8 @@ ifdef DOCKER_IMAGE
 	docker build -t ${DOCKER_IMAGE} .
 
 ifeq ($(TRAVIS_PULL_REQUEST), false)
-	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_BRANCH/\//-}
-	docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_BRANCH/\//-}
+	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
+	docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
 
 ifndef TRAVIS_TAG
 	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
