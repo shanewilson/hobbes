@@ -34,16 +34,16 @@ var _webpack4 = _interopRequireDefault(_webpack3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = (0, _express2.default)();
+const app = (0, _express2.default)();
 
-var isDevelopment = _config2.default.get('env').NODE_ENV === 'development';
-var staticDir = _config2.default.get(isDevelopment ? 'dir_src' : 'dir_dist');
-var indexFile = _path2.default.join(isDevelopment ? '' : _config2.default.get('globals').__BASE__, 'index.html');
+const isDevelopment = _config2.default.get('env').NODE_ENV === 'development';
+const staticDir = _config2.default.get(isDevelopment ? 'dir_src' : 'dir_dist');
+const indexFile = _path2.default.join(isDevelopment ? '' : _config2.default.get('globals').__BASE__, 'index.html');
 
 app.use((0, _connectGzipStatic2.default)(staticDir));
 
 if (isDevelopment) {
-  var compiler = (0, _webpack2.default)(_webpack4.default);
+  const compiler = (0, _webpack2.default)(_webpack4.default);
 
   app.use(require('webpack-dev-middleware')(compiler, _webpack4.default.devServer));
   app.use(require('webpack-hot-middleware')(compiler));
@@ -52,12 +52,10 @@ if (isDevelopment) {
 }
 
 app.use('/api', (0, _expressHttpProxy2.default)(_config2.default.get('proxy'), {
-  forwardPath: function forwardPath(req) {
-    return require('url').parse(req.url).path;
-  }
+  forwardPath: req => require('url').parse(req.url).path
 }));
 
-app.get(/^((?!(.js|.css|.ico)).)*$/, function (req, res) {
+app.get(/^((?!(.js|.css|.ico)).)*$/, (req, res) => {
   res.sendFile(_path2.default.join(staticDir, indexFile));
 });
 

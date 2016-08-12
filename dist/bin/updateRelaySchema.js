@@ -25,28 +25,28 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apiUrl = _config2.default.get('proxy');
-var graphqlHubUrl = apiUrl + '/graphql';
-console.log('⚡  Fetching GraphQL Schema from ' + _chalk2.default.white(graphqlHubUrl));
+const apiUrl = _config2.default.get('proxy');
+const graphqlHubUrl = `${ apiUrl }/graphql`;
+console.log(`⚡  Fetching GraphQL Schema from ${ _chalk2.default.white(graphqlHubUrl) }`);
 try {
-  var status = (0, _syncRequest2.default)('GET', apiUrl + '/status');
-  var response = (0, _syncRequest2.default)('POST', graphqlHubUrl, {
+  const status = (0, _syncRequest2.default)('GET', `${ apiUrl }/status`);
+  const response = (0, _syncRequest2.default)('POST', graphqlHubUrl, {
     json: {
       query: _utilities.introspectionQuery
     }
   });
 
   if (response.statusCode === 200) {
-    var schema = JSON.parse(response.body.toString('utf-8'));
-    var version = JSON.parse(status.body.toString('utf-8'));
+    const schema = JSON.parse(response.body.toString('utf-8'));
+    const version = JSON.parse(status.body.toString('utf-8'));
 
     _gracefulFs2.default.writeFileSync(_path2.default.join(_config2.default.get('path_project'), 'data', 'schema.json'), JSON.stringify(schema, null, 2));
     _gracefulFs2.default.writeFileSync(_path2.default.join(_config2.default.get('path_project'), 'data', 'version.json'), JSON.stringify(version, null, 2));
-    console.log(_chalk2.default.green('✓') + '  GraphQL Schema ' + _chalk2.default.green('updated') + ' to commit ' + _chalk2.default.white(version.commit));
+    console.log(`${ _chalk2.default.green('✓') }  GraphQL Schema ${ _chalk2.default.green('updated') } to commit ${ _chalk2.default.white(version.commit) }`);
   } else {
-    console.log(_chalk2.default.red('✗') + '  Failed to update schema');
+    console.log(`${ _chalk2.default.red('✗') }  Failed to update schema`);
     console.log(response);
   }
 } catch (e) {
-  console.log(_chalk2.default.red('✗') + '  ' + e);
+  console.log(`${ _chalk2.default.red('✗') }  ${ e }`);
 }

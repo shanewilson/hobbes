@@ -20,16 +20,14 @@ var _customLaunchers2 = _interopRequireDefault(_customLaunchers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var baseCapability = {
+const baseCapability = {
   tags: ['integration'],
   'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-  build: process.env.TRAVIS_REPO_SLUG + ':' + process.env.TRAVIS_BUILD_NUMBER,
+  build: `${ process.env.TRAVIS_REPO_SLUG }:${ process.env.TRAVIS_BUILD_NUMBER }`,
   'idle-timeout': 30000
 };
 
-var capabilities = Object.keys(_customLaunchers2.default).map(function (k) {
-  return _extends({}, _customLaunchers2.default[k], baseCapability);
-});
+const capabilities = Object.keys(_customLaunchers2.default).map(k => _extends({}, _customLaunchers2.default[k], baseCapability));
 
 exports.default = {
 
@@ -80,7 +78,7 @@ exports.default = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://docs.saucelabs.com/reference/platforms-configurator
   //
-  capabilities: capabilities,
+  capabilities,
   //
   // ===================
   // Test Configurations
@@ -174,8 +172,8 @@ exports.default = {
   //
   // Gets executed before test execution begins. At this point you can access all global
   // variables, such as `browser`. It is the perfect place to define custom commands.
-  before: function before(capabilities, specs) {
-    var chai = require('chai');
+  before: (capabilities, specs) => {
+    const chai = require('chai');
     global.expect = chai.expect;
   }
 };

@@ -15,10 +15,10 @@ var _webpackDevServer2 = _interopRequireDefault(_webpackDevServer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var host = _config2.default.get('webpack_host');
-var port = _config2.default.get('webpack_port');
+const host = _config2.default.get('webpack_host');
+const port = _config2.default.get('webpack_port');
 
-_webpackDevServer2.default.listen(port, host, function () {
-  console.log('⚡  Server running at ' + _chalk2.default.white(host + ':' + port));
-  console.log('➾  Proxying ' + _chalk2.default.white('/api') + ' to API running at ' + _chalk2.default.white(_config2.default.get('proxy')));
+_webpackDevServer2.default.listen(port, host, () => {
+  console.log(`⚡  Server running at ${ _chalk2.default.white(`${ host }:${ port }`) }`);
+  console.log(`➾  Proxying ${ _chalk2.default.white('/api') } to API running at ${ _chalk2.default.white(_config2.default.get('proxy')) }`);
 });

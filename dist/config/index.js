@@ -10,7 +10,7 @@ var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var config = new Map();
+const config = new Map();
 
 // ------------------------------------
 // Project
@@ -31,7 +31,7 @@ config.set('dir_dist', _path2.default.join(config.get('path_project'), 'dist'));
 // ------------------------------------
 config.set('webpack_host', process.env.HOST || 'localhost');
 config.set('webpack_port', process.env.PORT || 8080);
-config.set('webpack_public_path', 'http://' + config.get('webpack_host') + ':' + config.get('webpack_port') + '/');
+config.set('webpack_public_path', `http://${ config.get('webpack_host') }:${ config.get('webpack_port') }/`);
 config.set('proxy', process.env.PROXY || 'http://localhost:5000');
 
 /*  *********************************************
@@ -62,8 +62,8 @@ config.set('globals', {
 // ------------------------------------
 // Utilities
 // ------------------------------------
-var packageJSON = require(_path2.default.join(config.get('path_project'), 'package.json'));
-var dependencies = Object.keys(packageJSON.dependencies);
+const packageJSON = require(_path2.default.join(config.get('path_project'), 'package.json'));
+const dependencies = Object.keys(packageJSON.dependencies);
 
 config.set('dependencies', dependencies);
 
