@@ -40,7 +40,7 @@ exports.default = {
   target: 'web',
   devtool: '#source-map',
   entry: {
-    bundle: [_path2.default.join(_2.default.get('dir_src'), 'js', 'index.jsx')]
+    bundle: ['babel-polyfill', _path2.default.join(_2.default.get('dir_src'), 'js', 'index.jsx')]
   },
   output: {
     path: _path2.default.join(_2.default.get('dir_dist'), _2.default.get('globals').__BASE__, 'js'),
