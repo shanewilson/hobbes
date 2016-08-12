@@ -119,6 +119,14 @@ travis-script: lint test-ci
 travis-after-success:
 	bash <(curl -s https://codecov.io/bash)
 
+safetag = $(subst /,-,${1})
+dockertag = docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
+dockerpush = docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
+define dockerupload
+	$(call dockertag,${1})
+	$(call dockerpush,${1})
+endef
+
 .PHONY: travis-docker-upload
 travis-docker-upload:
 ifdef DOCKER_IMAGE
@@ -126,18 +134,14 @@ ifdef DOCKER_IMAGE
 	docker build -t ${DOCKER_IMAGE} .
 ifeq ($(TRAVIS_PULL_REQUEST), false)
 ifeq ($(TRAVIS_BRANCH), master)
-	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:stable
-	docker push quay.io/ncigdc/${DOCKER_IMAGE}:stable
+	$(call dockerupload,stable)
 else ifeq ($(TRAVIS_BRANCH), develop)
-	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:latest
-	docker push quay.io/ncigdc/${DOCKER_IMAGE}:latest
+	$(call dockerupload,latest)
 else
-	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
-	docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(subst /,-,${TRAVIS_BRANCH})
+	$(call dockerupload,${TRAVIS_BRANCH})
 endif
 ifdef TRAVIS_TAG
-	docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
-	docker push quay.io/ncigdc/${DOCKER_IMAGE}:${TRAVIS_TAG}
+	$(call dockerupload,${TRAVIS_TAG})
 endif
 endif
 endif
