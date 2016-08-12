@@ -1,6 +1,6 @@
 import path from 'path';
 import config from '../';
-import { customLaunchers } from '../karma/ci';
+import customLaunchers from '../karma/customLaunchers';
 
 const baseCapability = {
   tags: ['integration'],

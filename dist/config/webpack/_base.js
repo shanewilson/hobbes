@@ -28,11 +28,7 @@ var _babel2 = _interopRequireDefault(_babel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getDirectories(srcpath) {
-  return _gracefulFs2.default.readdirSync(srcpath).filter(file => {
-    return _gracefulFs2.default.statSync(_path2.default.join(srcpath, file)).isDirectory();
-  });
-}
+const getDirectories = srcpath => _gracefulFs2.default.readdirSync(srcpath).filter(file => _gracefulFs2.default.statSync(_path2.default.join(srcpath, file)).isDirectory());
 
 const dirs = getDirectories(_path2.default.resolve(_path2.default.join(_2.default.get('dir_src'), 'js')));
 
