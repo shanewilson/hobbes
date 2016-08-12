@@ -36,7 +36,7 @@ exports.default = function (config) {
       }
     },
     // karma only needs to know about the test bundle
-    files: ['node_modules/babel-polyfill/dist/polyfill.js', KARMA_ENTRY_FILE],
+    files: [_path2.default.resolve(_2.default.get('path_project'), 'node_modules/babel-polyfill/dist/polyfill.js'), KARMA_ENTRY_FILE],
     // run the bundle through the webpack and sourcemap plugins
     preprocessors: _defineProperty({}, KARMA_ENTRY_FILE, ['webpack', 'sourcemap']),
     frameworks: ['chai-sinon', 'mocha'],
