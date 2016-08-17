@@ -19,6 +19,8 @@ const commonPlugins = [
     polyfill: false,
     regenerator: true,
   }],
+  // export v from 'mod';
+  'transform-export-extensions',
 ];
 
 export default {
@@ -26,7 +28,6 @@ export default {
   presets: [
     'react',
     ['es2015', { modules: false }],
-    'es2016',
   ],
   env: {
     development: {
