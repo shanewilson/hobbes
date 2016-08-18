@@ -12,19 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var relayPlugin = _path2.default.join(__dirname, 'plugins', 'relayPlugin');
 
-var commonPlugins = [
-// function x(a, b, c,) { }
-'syntax-trailing-function-commas',
-// await fetch()
-'syntax-async-functions',
-// class { handleClick = () => { } }
-'transform-class-properties',
-// { ...todo, completed: true }
-'transform-object-rest-spread',
-// function* () { yield 42; yield 43; }
-'transform-regenerator',
-// Polyfills the runtime needed for async/await and generators
-['transform-runtime', {
+var commonPlugins = [['transform-runtime', {
   helpers: false,
   polyfill: false,
   regenerator: true
@@ -32,7 +20,7 @@ var commonPlugins = [
 
 exports.default = {
   babelrc: false,
-  presets: ['react', ['es2015', { modules: false }], 'es2016'],
+  presets: ['react', ['es2015', { modules: false, loose: true }], 'stage-1'],
   env: {
     development: {
       plugins: [].concat(commonPlugins, [relayPlugin, 'react-hot-loader/babel'])
