@@ -11,5 +11,5 @@ try {
   });
 } catch (e) {
   console.log(`${chalk.red('✗')}  Failed to find schema`);
-  console.log(`➾\tStart the ${chalk.white('GraphQL')} server and run ${chalk.cyan('`make schema`')}`);
+  console.log(`➾  Start the ${chalk.white('GraphQL')} server and run ${chalk.cyan('`make schema`')}`);
 }

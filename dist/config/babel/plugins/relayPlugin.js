@@ -22,5 +22,5 @@ try {
   });
 } catch (e) {
   console.log(_chalk2.default.red('✗') + '  Failed to find schema');
-  console.log('➾\tStart the ' + _chalk2.default.white('GraphQL') + ' server and run ' + _chalk2.default.cyan('`make schema`'));
+  console.log('➾  Start the ' + _chalk2.default.white('GraphQL') + ' server and run ' + _chalk2.default.cyan('`make schema`'));
 } // inside that file

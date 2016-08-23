@@ -23,7 +23,7 @@ all: install lint test-once build
 
 .PHONY: server-stage
 server-stage: export NODE_ENV = stage
-server-stage: build server
+server-stage: build docker-build docker-run
 
 .PHONY: server-prod
 server-prod: export NODE_ENV = production
@@ -105,11 +105,31 @@ upgrade:
 	$(Q) david update
 	@$(PRINT_OK)
 
+safetag = $(subst /,-,${1})
+dockertag = docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
+dockerpush = docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
+dockerbuild = docker build -t ${DOCKER_IMAGE} .
+dockerlogin = docker login -e=${DOCKER_EMAIL} -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} quay.io
+define dockerupload
+	$(call dockertag,${1})
+	$(call dockerpush,${1})
+endef
+
+.PHONY: docker-build
+docker-build:
+	$(Q) $(call dockerbuild)
+	@$(PRINT_OK)
+
+.PHONY: docker-run
+docker-run:
+	$(Q) docker run -p 8080:80 ${DOCKER_IMAGE}
+	@$(PRINT_OK)
+
 .PHONY: travis-before-script
 travis-before-script:
 	export DISPLAY=:99.0
 	sh -e /etc/init.d/xvfb start
-	NODE_ENV=production make build
+	NODE_ENV=production $(MAKE) build
 	sleep 3
 
 .PHONY: travis-script
@@ -119,19 +139,11 @@ travis-script: lint test-ci
 travis-after-success:
 	bash <(curl -s https://codecov.io/bash)
 
-safetag = $(subst /,-,${1})
-dockertag = docker tag ${DOCKER_IMAGE} quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
-dockerpush = docker push quay.io/ncigdc/${DOCKER_IMAGE}:$(call safetag,${1})
-define dockerupload
-	$(call dockertag,${1})
-	$(call dockerpush,${1})
-endef
-
 .PHONY: travis-docker-upload
 travis-docker-upload:
 ifdef DOCKER_IMAGE
-	docker login -e=${DOCKER_EMAIL} -u=${DOCKER_USERNAME} -p=${DOCKER_PASSWORD} quay.io
-	docker build -t ${DOCKER_IMAGE} .
+	$(call dockerlogin)
+	$(call dockerbuild)
 ifeq ($(TRAVIS_PULL_REQUEST), false)
 ifeq ($(TRAVIS_BRANCH), master)
 	$(call dockerupload,stable)
