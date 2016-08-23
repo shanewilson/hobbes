@@ -157,3 +157,28 @@ ifdef TRAVIS_TAG
 endif
 endif
 endif
+
+.PHONY: semver-check
+semver-check:
+ifndef NEXT_VERSION
+	$(error Need to pass version as NEXT_VERSION=x.y.z)
+endif
+
+.PHONY: git-bump-version
+git-bump-version:
+	npm --no-git-tag-version version ${NEXT_VERSION}
+
+.PHONY: git-changelog
+git-changelog:
+	@echo "do changelog stuff"
+
+.PHONY: git-commit
+git-commit:
+	git commit -a -S -m "Release v${NEXT_VERSION}"
+
+.PHONY: git-tag
+git-tag:
+	git tag ${NEXT_VERSION} -sm "Release v${NEXT_VERSION}"
+
+.PHONY: git-release
+git-release: semver-check git-bump-version git-changelog git-commit git-tag
