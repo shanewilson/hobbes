@@ -104,7 +104,7 @@ const tasks = new Listr([
   },
   {
     title: 'Generating Changelog',
-    task: () => execa('make', ['lint']),
+    task: () => execa('make ', ['changlog']),
   },
   {
     title: 'Git Commit Release',
