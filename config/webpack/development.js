@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const config = require('../');
@@ -17,14 +18,15 @@ const devServer = {
   publicPath: webpackConfig.output.publicPath,
 };
 
-module.exports = Object.assign(webpackConfig, {
-  entry: Object.assign(webpackConfig.entry, {
+module.exports = merge(webpackConfig, {
+  entry: {
     bundle: [
+      'babel-polyfill',
       'webpack-hot-middleware/client?reload=true',
       'react-hot-loader/patch',
       ...webpackConfig.entry.bundle,
     ],
-  }),
+  },
   plugins: [
     new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),

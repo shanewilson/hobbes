@@ -1,11 +1,11 @@
-const configSettings = require('../');
+const config = require('../');
 const customLaunchers = require('./customLaunchers');
 
-module.exports = config => {
-  const single = require('./single')(config);
+module.exports = karmaConfig => {
+  const single = require('./single')(karmaConfig);
 
-  config.set(Object.assign(single, {
-    logLevel: config.LOG_ERROR,
+  karmaConfig.set(Object.assign(single, {
+    logLevel: karmaConfig.LOG_ERROR,
     // Increase timeout in case connection in CI is slow
     captureTimeout: 120000,
     browserNoActivityTimeout: 30000,
@@ -35,12 +35,12 @@ module.exports = config => {
       },
     },
     coverageReporter: {
-      dir: `${configSettings.get('path_project')}/coverage`,
+      dir: `${config.get('path_project')}/coverage`,
       reporters: [
         { type: 'lcov', subdir: '.', file: 'lcov.info' },
       ],
     },
-  });
+  }));
 
-  return config;
+  return karmaConfig;
 };

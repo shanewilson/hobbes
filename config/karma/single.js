@@ -1,7 +1,7 @@
-module.exports = config => {
-  const base = require('./_base')(config);
+module.exports = karmaConfig => {
+  const base = require('./_base')(karmaConfig);
 
-  config.set(Object.assign(base, {
+  karmaConfig.set(Object.assign(base, {
     autoWatch: false,
     singleRun: true,
     mochaReporter: Object.assign(base.mochaReporter, {
@@ -9,5 +9,5 @@ module.exports = config => {
     }),
   }));
 
-  return config;
+  return karmaConfig;
 };

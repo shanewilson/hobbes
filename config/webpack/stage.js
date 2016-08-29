@@ -8,14 +8,11 @@ const webpackConfig = require('./_base');
 
 const LIBS_BUNDLE = 'libs';
 
-module.exports = {
-  ...webpackConfig,
+module.exports = merge(webpackConfig, {
   entry: {
-    ...webpackConfig.entry,
     [LIBS_BUNDLE]: config.get('dependencies'),
   },
   output: {
-    ...webpackConfig.output,
     filename: '[name].[hash].js',
     chunkFilename: '[id].js',
   },
@@ -33,4 +30,4 @@ module.exports = {
     }),
     new HtmlRemove(),
   ],
-};
+});

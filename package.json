@@ -93,13 +93,11 @@
     "webpack": "2.1.0-beta.13",
     "webpack-dev-middleware": "1.6.1",
     "webpack-dev-server": "2.1.0-beta.0",
-    "webpack-hot-middleware": "2.12.2"
+    "webpack-hot-middleware": "2.12.2",
+    "webpack-merge": "^0.14.1"
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "build": "rm -rf dist && babel . -d dist --ignore node_modules"
+    "node": ">=5"
   }
 }

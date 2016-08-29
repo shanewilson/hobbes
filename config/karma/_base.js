@@ -1,18 +1,18 @@
 const path = require('path');
 
-const configSettings = require('..');
+const config = require('..');
 const webpack = require('../webpack/development');
 
 const KARMA_ENTRY_FILE = 'karma.entry.js';
 
-module.exports = config => {
-  config.set({
+module.exports = karmaConfig => {
+  karmaConfig.set({
     browsers: ['Chrome_with_debugging'],
 
     customLaunchers: {
       Chrome_with_debugging: {
         base: 'Chrome',
-        chromeDataDir: path.resolve(configSettings.get('path_project'), '.chrome'),
+        chromeDataDir: path.resolve(config.get('path_project'), '.chrome'),
         flags: [
           '--remote-debugging-port=9222',
         ],
@@ -20,7 +20,7 @@ module.exports = config => {
     },
     // karma only needs to know about the test bundle
     files: [
-      path.resolve(configSettings.get('path_project'), 'node_modules/babel-polyfill/dist/polyfill.js'),
+      path.resolve(config.get('path_project'), 'node_modules/babel-polyfill/dist/polyfill.js'),
       KARMA_ENTRY_FILE,
     ],
     // run the bundle through the webpack and sourcemap plugins
@@ -45,7 +45,7 @@ module.exports = config => {
     // level of logging
     // possible values:
     // LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: karmaConfig.LOG_INFO,
 
     webpack: Object.assign(webpack, {
       devtool: 'inline-source-map',
@@ -61,5 +61,5 @@ module.exports = config => {
     }),
   });
 
-  return config;
+  return karmaConfig;
 };

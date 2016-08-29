@@ -1,16 +1,15 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const webpackConfig = require('./stage');
 
-module.exports = {
-  ...webpackConfig,
+module.exports = merge(webpackConfig, {
   bail: true,
   debug: false,
   profile: false,
   pathInfo: false,
   output: {
-    ...webpackConfig.output,
     pathInfo: false,
   },
   plugins: [
@@ -41,4 +40,4 @@ module.exports = {
       minRatio: 0.8,
     }),
   ],
-};
+});
