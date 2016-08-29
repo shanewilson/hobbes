@@ -8,9 +8,10 @@ const pkg = readPkgUp.sync().pkg;
 const prechecks = new Listr([
   {
     title: 'Checking NEXT_VERSION is set',
-    skip: () => process.env.NEXT_VERSION,
     task: () => {
-      throw new Error('Need to pass version as NEXT_VERSION=x.y.z');
+      if (!process.env.NEXT_VERSION) {
+        throw new Error('Need to pass version as NEXT_VERSION=x.y.z');
+      }
     },
   },
   {
@@ -104,7 +105,7 @@ const tasks = new Listr([
   },
   {
     title: 'Generating Changelog',
-    task: () => execa('make ', ['changlog']),
+    task: () => require('./changelog'),
   },
   {
     title: 'Git Commit Release',
