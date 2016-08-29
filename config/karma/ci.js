@@ -1,11 +1,10 @@
-import configSettings from '../';
-import customLaunchers from './customLaunchers';
+const configSettings = require('../');
+const customLaunchers = require('./customLaunchers');
 
-export default config => {
+module.exports = config => {
   const single = require('./single')(config);
 
-  config.set({
-    ...single,
+  config.set(Object.assign(single, {
     logLevel: config.LOG_ERROR,
     // Increase timeout in case connection in CI is slow
     captureTimeout: 120000,

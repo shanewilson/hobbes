@@ -1,9 +1,9 @@
-import webpack from 'webpack';
-import CompressionPlugin from 'compression-webpack-plugin';
+const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 
-import webpackConfig from './stage';
+const webpackConfig = require('./stage');
 
-export default {
+module.exports = {
   ...webpackConfig,
   bail: true,
   debug: false,

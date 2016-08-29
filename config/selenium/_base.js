@@ -1,6 +1,6 @@
-import path from 'path';
-import config from '../';
-import customLaunchers from '../karma/customLaunchers';
+const path = require('path');
+const config = require('../');
+const customLaunchers = require('../karma/customLaunchers');
 
 const baseCapability = {
   tags: ['integration'],
@@ -9,12 +9,12 @@ const baseCapability = {
   'idle-timeout': 30000,
 };
 
-const capabilities = Object.keys(customLaunchers).map(k => ({
-  ...customLaunchers[k],
-  ...baseCapability,
-}));
+const capabilities = Object.keys(customLaunchers).map(k => Object.assign({},
+  customLaunchers[k],
+  baseCapability,
+));
 
-export default {
+module.exports = {
 
   //
   // =================

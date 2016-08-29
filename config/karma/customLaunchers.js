@@ -1,6 +1,6 @@
 // Browsers to run on Sauce Labs
 // Check out https://saucelabs.com/platforms for all browser/OS combos
-export default {
+module.exports = {
   SL_Chrome_OSX: {
     base: 'SauceLabs',
     browserName: 'chrome',

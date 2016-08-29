@@ -1,7 +1,7 @@
 // inside that file
-import chalk from 'chalk';
-import babelRelayPlugin from 'babel-relay-plugin';
-import config from '../../';
+const chalk = require('chalk');
+const babelRelayPlugin = require('babel-relay-plugin');
+const config = require('../../');
 
 try {
   const schema = require(`${config.get('path_project')}/data/schema.json`);

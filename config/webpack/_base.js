@@ -1,9 +1,9 @@
-import path from 'path';
-import webpack from 'webpack';
-import fs from 'graceful-fs';
+const path = require('path');
+const webpack = require('webpack');
+const fs = require('graceful-fs');
 
-import config from '../';
-import babel from '../babel';
+const config = require('../');
+const babel = require('../babel');
 
 const getDirectories = srcpath => (
   fs.readdirSync(srcpath).filter(file => (
@@ -13,12 +13,11 @@ const getDirectories = srcpath => (
 
 const dirs = getDirectories(path.resolve(path.join(config.get('dir_src'), 'js')));
 
-const alias = dirs.reduce((acc, d) => ({
-  ...acc,
+const alias = dirs.reduce((acc, d) => Object.assign(acc, {
   [d]: path.resolve(path.join(config.get('dir_src'), 'js', d)),
 }), {});
 
-export default {
+module.exports = {
   target: 'web',
   devtool: '#source-map',
   entry: {
@@ -50,10 +49,9 @@ export default {
   resolve: {
     extentions: ['', '.js', '.jsx'],
     modules: ['node_modules'],
-    alias: {
+    alias: Object.assign({
       react: path.resolve(path.join(config.get('path_project'), 'node_modules', 'react')),
-      ...alias,
-    },
+    }, alias),
   },
   plugins: [
     new webpack.DefinePlugin({

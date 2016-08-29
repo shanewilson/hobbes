@@ -1,11 +1,11 @@
-import path from 'path';
-import express from 'express';
-import proxy from 'express-http-proxy';
-import gzipStatic from 'connect-gzip-static';
-import webpack from 'webpack';
+const path = require('path');
+const express = require('express');
+const proxy = require('express-http-proxy');
+const gzipStatic = require('connect-gzip-static');
+const webpack = require('webpack');
 
-import config from '../config';
-import webpackConfig from '../webpack.config';
+const config = require('../config');
+const webpackConfig = require('../webpack.config');
 
 const app = express();
 
@@ -34,4 +34,4 @@ app.get(/^((?!(.js|.css|.ico)).)*$/, (req, res) => {
   res.sendFile(path.join(staticDir, indexFile));
 });
 
-export default app;
+module.exports = app;

@@ -1,11 +1,11 @@
-import path from 'path';
+const path = require('path');
 
-import configSettings from '..';
-import webpack from '../webpack/development';
+const configSettings = require('..');
+const webpack = require('../webpack/development');
 
 const KARMA_ENTRY_FILE = 'karma.entry.js';
 
-export default config => {
+module.exports = config => {
   config.set({
     browsers: ['Chrome_with_debugging'],
 
@@ -47,8 +47,7 @@ export default config => {
     // LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
 
-    webpack: {
-      ...webpack,
+    webpack: Object.assign(webpack, {
       devtool: 'inline-source-map',
       externals: {
         cheerio: 'window',
@@ -56,11 +55,10 @@ export default config => {
         'react/lib/ExecutionEnvironment': true,
         'react/lib/ReactContext': true,
       },
-    },
-    webpackMiddleware: {
-      ...webpack.devServer,
+    }),
+    webpackMiddleware: Object.assign(webpack.devServer, {
       quiet: true,
-    },
+    }),
   });
 
   return config;

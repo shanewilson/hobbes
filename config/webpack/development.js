@@ -1,8 +1,8 @@
-import webpack from 'webpack';
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+const webpack = require('webpack');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
-import config from '../';
-import webpackConfig from './_base';
+const config = require('../');
+const webpackConfig = require('./_base');
 
 const devServer = {
   contentBase: config.get('dir_src'),
@@ -17,20 +17,18 @@ const devServer = {
   publicPath: webpackConfig.output.publicPath,
 };
 
-export default {
-  ...webpackConfig,
-  entry: {
-    ...webpackConfig.entry,
+module.exports = Object.assign(webpackConfig, {
+  entry: Object.assign(webpackConfig.entry, {
     bundle: [
       'webpack-hot-middleware/client?reload=true',
       'react-hot-loader/patch',
       ...webpackConfig.entry.bundle,
     ],
-  },
+  }),
   plugins: [
     new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     ...webpackConfig.plugins,
   ],
   devServer,
-};
+});

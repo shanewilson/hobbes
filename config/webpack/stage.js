@@ -1,14 +1,14 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlRemove from './plugins/html-remove';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlRemove = require('./plugins/html-remove');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-import config from '../';
-import webpackConfig from './_base';
+const config = require('../');
+const webpackConfig = require('./_base');
 
 const LIBS_BUNDLE = 'libs';
 
-export default {
+module.exports = {
   ...webpackConfig,
   entry: {
     ...webpackConfig.entry,

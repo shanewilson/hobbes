@@ -11,4 +11,4 @@ HtmlRemove.prototype.apply = compiler => {
   });
 };
 
-export default HtmlRemove;
+module.exports = HtmlRemove;

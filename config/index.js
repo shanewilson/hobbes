@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 const config = new Map();
 
@@ -59,4 +59,4 @@ const dependencies = Object.keys(packageJSON.dependencies);
 
 config.set('dependencies', dependencies);
 
-export default config;
+module.exports = config;

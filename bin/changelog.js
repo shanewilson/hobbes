@@ -3,7 +3,7 @@ const Listr = require('listr');
 const fs = require('graceful-fs');
 const readPkgUp = require('read-pkg-up');
 const dateFormat = require('dateformat');
-const config = require('../dist/config');
+const config = require('../config');
 
 const pkg = readPkgUp.sync().pkg;
 

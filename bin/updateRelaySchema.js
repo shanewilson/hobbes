@@ -1,11 +1,11 @@
 #!/usr/bin/env babel-node
 
-import fs from 'graceful-fs';
-import path from 'path';
-import { introspectionQuery } from 'graphql/utilities';
-import request from 'sync-request';
-import chalk from 'chalk';
-import config from '../config';
+const fs = require('graceful-fs');
+const path = require('path');
+const { introspectionQuery } = require('graphql/utilities');
+const request = require('sync-request');
+const chalk = require('chalk');
+const config = require('../config');
 
 const apiUrl = config.get('proxy');
 const graphqlHubUrl = `${apiUrl}/graphql`;

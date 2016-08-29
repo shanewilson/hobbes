@@ -1,4 +1,4 @@
-import path from 'path';
+const path = require('path');
 
 const relayPlugin = path.join(__dirname, 'plugins', 'relayPlugin');
 
@@ -10,7 +10,7 @@ const commonPlugins = [
   }],
 ];
 
-export default {
+module.exports = {
   babelrc: false,
   presets: [
     'react',

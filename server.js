@@ -1,8 +1,6 @@
-#!/usr/bin/env babel-node
-
-import chalk from 'chalk';
-import config from './config';
-import devServer from './bin/webpackDevServer';
+const chalk = require('chalk');
+const config = require('./config');
+const devServer = require('./bin/webpackDevServer');
 
 const host = config.get('webpack_host');
 const port = config.get('webpack_port');
