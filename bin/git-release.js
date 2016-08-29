@@ -15,6 +15,22 @@ const prechecks = new Listr([
     },
   },
   {
+    title: 'Checking GIT_REPO is set',
+    task: () => {
+      if (!process.env.GIT_REPO) {
+        throw new Error('Need to set GIT_REPO');
+      }
+    },
+  },
+  {
+    title: 'Checking JIRA_URL is set',
+    task: () => {
+      if (!process.env.GIT_REPO) {
+        throw new Error('Need to set JIRA_URL');
+      }
+    },
+  },
+  {
     title: 'Validate version',
     task: () => {
       if (!semver.valid(process.env.NEXT_VERSION)) {

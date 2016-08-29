@@ -158,9 +158,6 @@ endif
 endif
 endif
 
-git-changelog:
-	$(Q) node ${FDT_DIR}/bin/changelog
-
 .PHONY: git-release
 git-release:
 	$(Q) node ${FDT_DIR}/bin/git-release

@@ -3,6 +3,7 @@ const Listr = require('listr');
 const fs = require('graceful-fs');
 const readPkgUp = require('read-pkg-up');
 const dateFormat = require('dateformat');
+const config = require('../dist/config');
 
 const pkg = readPkgUp.sync().pkg;
 
@@ -84,7 +85,7 @@ const changelog = new Listr([
   {
     title: 'Appending new changes',
     task: () => {
-      const CL = 'CHANGELOG.md';
+      const CL = `${config.get('path_project')}/CHANGELOG.md`;
       fs.readFile(CL, (err, data) => {
         if (err) throw err;
         const nextChangelog = `## ${pkg.version} (${dateFormat(new Date(), 'yyyy-mm-dd', true)})\n\n${LOGS}\n\n${data}`;
