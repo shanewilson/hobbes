@@ -1,7 +1,7 @@
 {
   "name": "frontend-dev-tools",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/shanewilson/frontend-dev-tools.git"

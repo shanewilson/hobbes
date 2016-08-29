@@ -98,7 +98,3 @@ const changelog = new Listr([
 ]);
 
 module.exports = changelog;
-
-changelog.run().catch(err => {
-  console.error(err.message);
-});
