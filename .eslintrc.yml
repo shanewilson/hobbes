@@ -1,7 +1,6 @@
 ---
   extends:
     - "airbnb"
-    - "cleanjs"
   parser: "babel-eslint"
   rules:
     no-underscore-dangle: 0
