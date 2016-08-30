@@ -8,6 +8,7 @@
     better/no-new: 0
     import/no-extraneous-dependencies: 0
     react/jsx-filename-extension: 0
+    react/require-extension: 0
   env:
     browser: true
     mocha: true
