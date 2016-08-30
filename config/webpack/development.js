@@ -18,19 +18,22 @@ const devServer = {
   publicPath: webpackConfig.output.publicPath,
 };
 
-module.exports = merge(webpackConfig, {
+module.exports = merge(merge(webpackConfig, {
   entry: {
-    bundle: [
-      'babel-polyfill',
-      'webpack-hot-middleware/client?reload=true',
-      'react-hot-loader/patch',
-      ...webpackConfig.entry.bundle,
-    ],
+    bundle: [],
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    ...webpackConfig.plugins,
   ],
   devServer,
+}), {
+  entry: {
+    bundle: [
+      // Order matters here
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client?reload=true',
+      ...webpackConfig.entry.bundle,
+    ],
+  },
 });

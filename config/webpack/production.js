@@ -13,7 +13,6 @@ module.exports = merge(webpackConfig, {
     pathInfo: false,
   },
   plugins: [
-    ...webpackConfig.plugins,
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false,

@@ -4,7 +4,7 @@ const customLaunchers = require('./customLaunchers');
 module.exports = karmaConfig => {
   const single = require('./single')(karmaConfig);
 
-  karmaConfig.set(Object.assign(single, {
+  karmaConfig.set(Object.assign({}, single, {
     logLevel: karmaConfig.LOG_ERROR,
     // Increase timeout in case connection in CI is slow
     captureTimeout: 120000,

@@ -47,7 +47,7 @@ module.exports = karmaConfig => {
     // LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: karmaConfig.LOG_INFO,
 
-    webpack: Object.assign(webpack, {
+    webpack: Object.assign({}, webpack, {
       devtool: 'inline-source-map',
       externals: {
         cheerio: 'window',
@@ -56,7 +56,7 @@ module.exports = karmaConfig => {
         'react/lib/ReactContext': true,
       },
     }),
-    webpackMiddleware: Object.assign(webpack.devServer, {
+    webpackMiddleware: Object.assign({}, webpack.devServer, {
       quiet: true,
     }),
   });

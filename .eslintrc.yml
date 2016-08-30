@@ -1,11 +1,13 @@
 ---
-  extends: "airbnb"
+  extends:
+    - "airbnb"
+    - "cleanjs"
   parser: "babel-eslint"
   rules:
     no-underscore-dangle: 0
     import/no-unresolved: 0
+    better/no-new: 0
     import/no-extraneous-dependencies: 0
-    react/require-extension: 0
   env:
     browser: true
     mocha: true

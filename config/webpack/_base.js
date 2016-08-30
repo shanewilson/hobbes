@@ -21,7 +21,7 @@ module.exports = {
   target: 'web',
   devtool: '#source-map',
   entry: {
-    bundle: ['babel-polyfill', path.join(config.get('dir_src'), 'js', 'index.jsx')],
+    bundle: ['babel-polyfill', path.join(config.get('dir_src'), 'js', 'index.js')],
   },
   output: {
     path: path.join(config.get('dir_dist'), config.get('globals').__BASE__, 'js'),
