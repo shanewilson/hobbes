@@ -44,12 +44,5 @@ module.exports = {
       ...commonPlugins,
       testPlugins,
     ] },
-    ci: {
-      plugins: [
-        ...commonPlugins,
-        relayPlugin,
-        'istanbul',
-      ],
-    },
   },
 };

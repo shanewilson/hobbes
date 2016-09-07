@@ -61,7 +61,7 @@ test-watch: export TEST_ENV=watch
 test-watch: test
 
 .PHONY: test-ci
-test-ci: export BABEL_ENV=ci
+test-ci: export BABEL_ENV=single
 test-ci: export TEST_ENV=ci
 test-ci: test
 
@@ -133,7 +133,7 @@ travis-before-script:
 	sleep 3
 
 .PHONY: travis-script
-travis-script: lint test-ci
+travis-script: lint test-once
 
 .PHONY: travis-after-success
 travis-after-success:
