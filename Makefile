@@ -73,28 +73,11 @@ test-once: test
 .PHONY: test
 test: export NODE_ENV=development
 test:
-	$(Q) karma start ${FDT_DIR}/karma.config.js
-	@$(PRINT_OK)
-
-.PHONY: snapshot-watch
-snapshot-watch: export BABEL_ENV=watch
-snapshot-watch: export TEST_ENV=watch
-snapshot-watch: snapshot
-
-.PHONY: snapshot-once
-snapshot-once: export BABEL_ENV=single
-snapshot-once: export TEST_ENV=single
-snapshot-once: snapshot
-
-.PHONY: snapshot
-snapshot: export NODE_ENV=development
-snapshot:
 	$(Q) node ${FDT_DIR}/bin/runTests
 	@$(PRINT_OK)
 
 .PHONY: lint
 lint:
-	$(Q) eslint __tests__ --ext .js,.jsx
 	$(Q) eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
