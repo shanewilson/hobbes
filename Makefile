@@ -22,15 +22,15 @@ all: install lint test-once build
 .PHONY: all
 
 .PHONY: server-stage
-server-stage: export NODE_ENV = stage
+server-stage: export NODE_ENV=stage
 server-stage: build docker-build docker-run
 
 .PHONY: server-prod
-server-prod: export NODE_ENV = production
-server-prod: build server
+server-prod: export NODE_ENV=production
+server-prod: build docker-build docker-run
 
 .PHONY: server
-server: export NODE_ENV ?= development
+server: export NODE_ENV=development
 server:
 	$(Q) node ${FDT_DIR}/server
 
@@ -71,13 +71,30 @@ test-once: export TEST_ENV=single
 test-once: test
 
 .PHONY: test
-test: export NODE_ENV ?= development
+test: export NODE_ENV=development
 test:
 	$(Q) karma start ${FDT_DIR}/karma.config.js
 	@$(PRINT_OK)
 
+.PHONY: snapshot-watch
+snapshot-watch: export BABEL_ENV=watch
+snapshot-watch: export TEST_ENV=watch
+snapshot-watch: snapshot
+
+.PHONY: snapshot-once
+snapshot-once: export BABEL_ENV=single
+snapshot-once: export TEST_ENV=single
+snapshot-once: snapshot
+
+.PHONY: snapshot
+snapshot: export NODE_ENV=development
+snapshot:
+	$(Q) node ${FDT_DIR}/bin/runTests
+	@$(PRINT_OK)
+
 .PHONY: lint
 lint:
+	$(Q) eslint __tests__ --ext .js,.jsx
 	$(Q) eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
@@ -160,4 +177,4 @@ endif
 
 .PHONY: git-release
 git-release:
-	$(Q) node ${FDT_DIR}/bin/git-release
+	$(Q) node ${FDT_DIR}/bin/gitRelease

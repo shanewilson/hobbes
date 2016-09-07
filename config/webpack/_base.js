@@ -47,11 +47,9 @@ module.exports = {
     noParse: [/\.min\.js$/],
   },
   resolve: {
-    extentions: ['', '.js', '.jsx'],
+    extentions: ['', 'js', 'jsx', 'json'],
     modules: ['node_modules'],
-    alias: Object.assign({
-      react: path.resolve(path.join(config.get('path_project'), 'node_modules', 'react')),
-    }, alias),
+    alias,
   },
   plugins: [
     new webpack.DefinePlugin({

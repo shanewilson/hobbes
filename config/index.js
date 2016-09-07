@@ -6,7 +6,6 @@ const config = new Map();
 // Project
 // ------------------------------------
 config.set('path_project', process.env.PWD);
-config.set('fdt_modules', path.resolve(path.join(__dirname, '..', 'node_modules')));
 // ------------------------------------
 // User Configuration
 // ------------------------------------

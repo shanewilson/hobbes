@@ -10,6 +10,10 @@ const commonPlugins = [
   }],
 ];
 
+const testPlugins = [
+  'transform-es2015-modules-commonjs',
+];
+
 module.exports = {
   babelrc: false,
   presets: [
@@ -31,8 +35,15 @@ module.exports = {
       relayPlugin,
       'transform-react-constant-elements',
     ] },
-    single: { plugins: [...commonPlugins, relayPlugin] },
-    watch: { plugins: commonPlugins },
+    single: { plugins: [
+      ...commonPlugins,
+      testPlugins,
+      relayPlugin,
+    ] },
+    watch: { plugins: [
+      ...commonPlugins,
+      testPlugins,
+    ] },
     ci: {
       plugins: [
         ...commonPlugins,

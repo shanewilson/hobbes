@@ -5,9 +5,9 @@ const config = require('../../');
 
 try {
   const schema = require(`${config.get('path_project')}/data/schema.json`);
-  console.log(`⇅  Loading ${chalk.white('GraphQL schema')} into ${chalk.white('Relay')}`);
+  console.log(`\n⇅  Loading ${chalk.white('GraphQL schema')} into ${chalk.white('Relay')}`);
   module.exports = babelRelayPlugin(schema.data, {
-    abortOnError: !config.get('globals').__DEV__,
+    abortOnError: process.env.TEST_ENV === 'single',
   });
 } catch (e) {
   console.log(`${chalk.red('✗')}  Failed to find schema`);
