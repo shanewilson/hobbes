@@ -127,13 +127,10 @@ docker-run:
 
 .PHONY: travis-before-script
 travis-before-script:
-	export DISPLAY=:99.0
-	sh -e /etc/init.d/xvfb start
 	NODE_ENV=production $(MAKE) build
-	sleep 3
 
 .PHONY: travis-script
-travis-script: lint test-once
+travis-script: lint test-ci
 
 .PHONY: travis-after-success
 travis-after-success:
