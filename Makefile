@@ -1,4 +1,4 @@
-PROJECT = "Frontend Dev Tools"
+PROJECT = "Hobbes"
 
 FDT_DIR ?= .
 PATH  := $(FDT_DIR)/node_modules/.bin:$(PATH)

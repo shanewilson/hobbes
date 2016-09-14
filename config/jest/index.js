@@ -5,6 +5,9 @@ const webpackConfig = require(path.resolve(__dirname, '..', 'webpack', '_base'))
 module.exports = () => {
   const jestConfig = {
     cacheDirectory: '.jest',
+    collectCoverageFrom: [
+      'src/js/*.js',
+    ],
     moduleFileExtensions: webpackConfig.resolve.extensions,
     moduleDirectories: webpackConfig.resolve.modules,
     moduleNameMapper: Object.assign({}, {

@@ -1,12 +1,12 @@
 {
-  "name": "frontend-dev-tools",
+  "name": "hobbes",
   "private": true,
   "version": "0.2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shanewilson/frontend-dev-tools.git"
+    "url": "https://github.com/shanewilson/hobbes.git"
   },
-  "homepage": "https://github.com/shanewilson/frontend-dev-tools",
+  "homepage": "https://github.com/shanewilson/hobbes",
   "author": {
     "name": "Shane Wilson",
     "email": "shanezilla@gmail.com",

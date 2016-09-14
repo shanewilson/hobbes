@@ -1,2 +1,2 @@
-# frontend-dev-tools
-Preconfigured Dev Env for Relay/React
+# Hobbes
+Hands Off Build System for Relay/React
