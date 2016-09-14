@@ -6,7 +6,7 @@ module.exports = () => {
   const jestConfig = {
     cacheDirectory: '.jest',
     collectCoverageFrom: [
-      'src/js/*.js',
+      'src/js/**/*.js',
     ],
     moduleFileExtensions: webpackConfig.resolve.extensions,
     moduleDirectories: webpackConfig.resolve.modules,
