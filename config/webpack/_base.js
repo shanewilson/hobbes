@@ -1,27 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
-const fs = require('graceful-fs');
 
 const config = require('../');
 const babel = require('../babel');
-
-const getDirectories = srcpath => (
-  fs.readdirSync(srcpath).filter(file => (
-    fs.statSync(path.join(srcpath, file)).isDirectory()
-  ))
-);
-
-const dirs = getDirectories(path.resolve(path.join(config.get('dir_src'), 'js')));
-
-const alias = dirs.reduce((acc, d) => Object.assign(acc, {
-  [d]: path.resolve(path.join(config.get('dir_src'), 'js', d)),
-}), {});
 
 module.exports = {
   target: 'web',
   devtool: '#source-map',
   entry: {
-    bundle: ['babel-polyfill', path.join(config.get('dir_src'), 'js', 'index.jsx')],
+    bundle: [path.join(config.get('dir_src'), 'js', 'index.jsx')],
   },
   output: {
     path: path.join(config.get('dir_dist'), config.get('globals').__BASE__, 'js'),
@@ -49,7 +36,6 @@ module.exports = {
   resolve: {
     extentions: ['', 'js', 'jsx', 'json'],
     modules: ['node_modules'],
-    alias,
   },
   plugins: [
     new webpack.DefinePlugin({
