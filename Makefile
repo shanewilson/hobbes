@@ -81,6 +81,10 @@ lint:
 	$(Q) eslint src --ext .js,.jsx
 	@$(PRINT_OK)
 
+.PHONY: flow
+flow:
+	$(Q) flow check
+
 .PHONY: clean
 clean: clean-dist clean-deps
 	@$(PRINT_OK)

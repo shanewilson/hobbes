@@ -56,6 +56,7 @@
     "expect": "1.20.2",
     "express": "4.14.0",
     "express-http-proxy": "0.10.0",
+    "flow-bin": "^0.32.0",
     "graceful-fs": "4.1.6",
     "html-webpack-plugin": "2.22.0",
     "jest": "^15.1.1",

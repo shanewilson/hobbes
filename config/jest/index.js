@@ -15,7 +15,7 @@ module.exports = () => {
 
     // These settings are needed because we are putting our source code
     // under /node_modules/ which is normally ignored by default
-    testPathDirs: ['src/js/node_modules'],
+    testPathDirs: ['src/js'],
     coveragePathIgnorePatterns: [],
     preprocessorIgnorePatterns: [],
     testPathIgnorePatterns: [],
