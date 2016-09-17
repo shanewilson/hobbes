@@ -18,7 +18,7 @@ module.exports = {
   babelrc: false,
   presets: [
     'react',
-    ['es2015', { modules: false, loose: true }],
+    'es2015',
     'stage-1',
   ],
   env: {
