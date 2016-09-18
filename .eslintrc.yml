@@ -1,21 +1,27 @@
 ---
   extends:
     - "airbnb"
+    - "cleanjs"
   parser: "babel-eslint"
   rules:
     no-underscore-dangle: 0
-    import/no-unresolved: 0
-    better/no-new: 0
+    # our modules are in node_modules
     import/no-extraneous-dependencies: 0
+    import/no-named-as-default-member: 0
+    # we just use js for everything
     react/jsx-filename-extension: 0
+    # this turns off the warning
     react/require-extension: 0
+    # need nulls for GraphQL variables
+    fp/no-nil: 0
+    # we might want the use new Set/Map
+    better/no-new: 0
+    # Tests blow up with these two on
+    fp/no-unused-expression: 0
+    better/explicit-return: 0
   env:
     browser: true
-    mocha: true
     jasmine: true
-  plugins:
-    - "react"
-    - "jsx-a11y"
   globals:
     __DEBUG__: true
     __DEV__: true

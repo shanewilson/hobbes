@@ -8,7 +8,7 @@ module.exports = {
   target: 'web',
   devtool: '#source-map',
   entry: {
-    bundle: [path.join(config.get('dir_src'), 'js', 'index.jsx')],
+    bundle: [path.join(config.get('dir_src'), 'js', 'index.js')],
   },
   output: {
     path: path.join(config.get('dir_dist'), config.get('globals').__BASE__, 'js'),
@@ -20,7 +20,7 @@ module.exports = {
     preLoaders: [],
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         loader: 'babel',
         exclude: ['node_modules'],
         include: `${config.get('dir_src')}/js`,
@@ -34,7 +34,7 @@ module.exports = {
     noParse: [/\.min\.js$/],
   },
   resolve: {
-    extentions: ['', 'js', 'jsx', 'json'],
+    extentions: ['', 'js', 'json'],
     modules: ['node_modules'],
   },
   plugins: [
