@@ -101,12 +101,12 @@ clean-deps:
 
 .PHONY: update
 update:
-	$(Q) david
+	$(Q) npm-check --skip-unused
 	@$(PRINT_OK)
 
 .PHONY: upgrade
 upgrade:
-	$(Q) david update
+	$(Q) npm-check -u
 	@$(PRINT_OK)
 
 safetag = $(subst /,-,${1})
