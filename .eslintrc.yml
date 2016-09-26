@@ -5,6 +5,7 @@
   parser: "babel-eslint"
   rules:
     no-underscore-dangle: 0
+    arrow-parens: 0
 
     ### import
     # our src modules are in node_modules but not package.json
@@ -18,6 +19,12 @@
     react/jsx-filename-extension: 0
     # this turns off the warning
     react/require-extension: 0
+    # this seems to ignore flow type
+    react/no-unused-prop-types: 0
+
+    ### jsx
+    # doesn't check props for children
+    jsx-a11y/anchor-has-content: 0
 
     ### fp
     # need nulls for GraphQL variables
@@ -28,6 +35,8 @@
     ### better
     # we might want the use new Set/Map
     better/no-new: 0
+    # already have a rule against nested ternary
+    better/no-ifs: 0
     # Tests blow up with this
     better/explicit-return: 0
 
@@ -38,7 +47,7 @@
     flowtype/generic-spacing: [2, "never"]
     flowtype/no-dupe-keys: 2
     flowtype/no-weak-types: 2
-    flowtype/require-parameter-type: [2, "always", {
+    flowtype/require-parameter-type: [2, {
       "excludeArrowFunctions": true
     }]
     flowtype/require-return-type: [2, "always", {

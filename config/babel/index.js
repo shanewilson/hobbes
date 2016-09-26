@@ -27,6 +27,7 @@ module.exports = {
         ...commonPlugins,
         relayPlugin,
         'react-hot-loader/babel',
+        'transform-react-jsx-source',
       ],
     },
     stage: { plugins: [...commonPlugins, relayPlugin] },
