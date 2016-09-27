@@ -55,7 +55,7 @@ const prechecks = new Listr([
   {
     title: 'Check git tag existence',
     task: () => execa('git', ['fetch'])
-    .then(() => execa.stdout('git', ['rev-parse', '--quiet', '--verify', `refs/tags/v${process.env.NEXT_VERSION}`]))
+    .then(() => execa.stdout('git', ['rev-parse', '--quiet', '--verify', `refs/tags/${process.env.NEXT_VERSION}`]))
     .then(
       output => {
         if (output) {
@@ -78,8 +78,8 @@ const gitchecks = new Listr([
     title: 'Check current branch',
     skip: () => process.env.ANY_BRANCH === '1',
     task: () => execa.stdout('git', ['symbolic-ref', '--short', 'HEAD']).then(branch => {
-      if (!branch.startsWith('release') && !branch.startsWith('hotfix')) {
-        throw new Error('Not on a `release` or `hotfix` branch. Use ANY_BRANCH to publish anyway.');
+      if (!branch === 'master' || !branch === 'next') {
+        throw new Error('Not on a `master` or `next` branch. Use ANY_BRANCH to publish anyway.');
       }
     }),
   },

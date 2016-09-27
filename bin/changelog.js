@@ -36,23 +36,7 @@ const formatLines = (line, matchedPr) => {
   return ls.join(' ');
 };
 
-const tasks = new Listr([
-  {
-    title: 'Checking GIT_REPO is set',
-    task: () => {
-      if (!process.env.GIT_REPO) {
-        throw new Error('Need to set GIT_REPO');
-      }
-    },
-  },
-  {
-    title: 'Checking JIRA_URL is set',
-    task: () => {
-      if (!process.env.JIRA_URL) {
-        throw new Error('Need to set JIRA_URL');
-      }
-    },
-  },
+const changelog = new Listr([
   {
     title: 'Gathering required info',
     task: () => new Listr([
@@ -121,22 +105,18 @@ const tasks = new Listr([
     title: 'Appending new changes',
     task: () => {
       const CL = `${config.get('path_project')}/CHANGELOG.md`;
-      fs.readFile(CL, (err, data) => {
-        if (err) throw err;
-        const nextChangelog = `## ${pkg.version} (${dateFormat(new Date(), 'yyyy-mm-dd', true)})\n\n${LOGS}\n\n${data}`;
+      try {
+        const data = fs.readFileSync(CL, 'utf-8');
 
-        fs.writeFile(CL, nextChangelog, e => {
-          if (e) throw e;
-        });
-      });
+        const title = `[${process.env.NEXT_VERSION}](https://github.com/${process.env.GIT_REPO}/compare/${FROM_TAG}...${process.env.NEXT_VERSION})`;
+        const nextChangelog = `## ${title} (${dateFormat(new Date(), 'yyyy-mm-dd', true)})\n\n${LOGS}\n\n${data}`;
+
+        fs.writeFile(CL, nextChangelog, 'utf-8');
+      } catch (err) {
+        throw err;
+      }
     },
   },
 ]);
 
-module.exports = tasks;
-
-if (process.env.STANDALONE) {
-  tasks.run().catch(err => {
-    console.error(err.message);
-  });
-}
+module.exports = changelog;
