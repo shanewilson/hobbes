@@ -3,18 +3,14 @@ const path = require('path');
 const relayPlugin = path.join(__dirname, 'plugins', 'relayPlugin');
 
 let plugins = [
-   ['transform-runtime', {
-    helpers: false,
-    polyfill: false,
-    regenerator: true,
-  }],
+  'transform-export-extensions',
 ];
 
 const testPlugins = [
   'transform-es2015-modules-commonjs',
 ];
 
-switch(process.env.BABEL_ENV) {
+switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
   case 'development':
     plugins = [
       ...plugins,
@@ -43,15 +39,23 @@ switch(process.env.BABEL_ENV) {
           ...plugins,
           testPlugins,
         ];
-      }
+        break;
+      default:
+        break;
+    }
+    break;
+  default:
+    break;
 }
 
 module.exports = {
   babelrc: false,
   presets: [
-    'react',
-    ['es2015', { modules: false, loose: true }],
-    'stage-1',
+    // Order is important here
+    ['latest', {
+      es2015: { modules: false, loose: true }
+    }],
+    'react-app',
   ],
   plugins,
 };
