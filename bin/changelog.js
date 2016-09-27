@@ -13,9 +13,18 @@ let LINES = [];
 let PRS = [];
 let LOGS;
 
+let emojiMapping = Object.assign({}, {
+  sparkles: 'Features',
+  bug: 'Fixes',
+  memo: 'Documentation',
+}, (pkg.hobbes || {}).emojiMapping || {});
+
 const formatLines = (line, matchedPr) => {
   const ls = [];
-  ls.push(`- ${line.emojis}`);
+  ls.push(`-`);
+  if (line.emojis) {
+    ls.push(line.emojis);
+  }
   if (line.tickets) {
     const tickets = line.tickets.split(',').map(t => `[${t}](${process.env.JIRA_URL}/${t})`);
     ls.push(`[${tickets}]`);
@@ -87,8 +96,9 @@ const tasks = new Listr([
       const lines = LINES.reduce((acc, l) => {
         const [tickettitle, commit, short] = l.split('__SPLIT__');
         const match = tickettitle.match(/^(:(.+?):(:.+:)?) (\[(.*)\] )?(.*)$/);
-        if (!match) return acc;
-        const [_1, emojis, type, _2, _3, tickets, title] = match;
+        if (!match || !emojiMapping[match[2]]) return acc;
+
+        const [_1, _2, type, emojis, _3, tickets, title] = match;
 
         const line = {
           title,
@@ -97,13 +107,14 @@ const tasks = new Listr([
           commit,
           short,
         };
+
         const matchedPr = PRS.find(pr => pr.mergeCommitSha === line.commit);
         return Object.assign({}, acc, {
           [type]: [...(acc[type] || []), formatLines(line, matchedPr)],
         });
       }, {});
 
-      LOGS = Object.keys(lines).map(key => lines[key].join('\n')).join('\n');
+      LOGS = Object.keys(lines).map(key => `### :${key}: ${emojiMapping[key]}\n\n${lines[key].join('\n')}`).join('\n\n');
     },
   },
   {

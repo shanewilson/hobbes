@@ -1,5 +1,33 @@
 ## 0.2.0 (2016-09-27)
 
+### :memo: Documentation
+
+- update changelog ([e5bb191](https://github.com/shanewilson/hobbes/commit/e5bb191c193ba037df784f55e348890e0306e369))
+
+### :bug: Fixes
+
+- fix jira env check ([9fc5b0f](https://github.com/shanewilson/hobbes/commit/9fc5b0fbb8ddb861f75bf1e06ef5bfbc4753caf4))
+- :apple: [[DCC-123](jira/DCC-123)] better changelog ([467e294](https://github.com/shanewilson/hobbes/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
+
+### :sparkles: Features
+
+- load relay plugin only when relay used ([dfd0368](https://github.com/shanewilson/hobbes/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
+
+## 0.2.0 (2016-09-27)
+
+undefined
+
+- undefined update changelog ([e5bb191](https://github.com/shanewilson/hobbes/commit/e5bb191c193ba037df784f55e348890e0306e369))
+Fixes
+
+- undefined fix jira env check ([9fc5b0f](https://github.com/shanewilson/hobbes/commit/9fc5b0fbb8ddb861f75bf1e06ef5bfbc4753caf4))
+- :apple: [[DCC-123](jira/DCC-123)] better changelog ([467e294](https://github.com/shanewilson/hobbes/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
+Features
+
+- undefined load relay plugin only when relay used ([dfd0368](https://github.com/shanewilson/hobbes/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
+
+## 0.2.0 (2016-09-27)
+
 - :bug: fix jira env check ([9fc5b0f](https://github.com/shanewilson/hobbes/commit/9fc5b0fbb8ddb861f75bf1e06ef5bfbc4753caf4))
 - :bug::apple: [[DCC-123](jira/DCC-123)] better changelog ([467e294](https://github.com/shanewilson/hobbes/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
 - :sparkles: load relay plugin only when relay used ([dfd0368](https://github.com/shanewilson/hobbes/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
