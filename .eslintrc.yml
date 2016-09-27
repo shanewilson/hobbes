@@ -17,8 +17,6 @@
     ### react
     # we just use js for everything
     react/jsx-filename-extension: 0
-    # this turns off the warning
-    react/require-extension: 0
     # this seems to ignore flow type
     react/no-unused-prop-types: 0
 
