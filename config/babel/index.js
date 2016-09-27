@@ -1,6 +1,11 @@
 const path = require('path');
+const readPkgUp = require('read-pkg-up');
 
-const relayPlugin = path.join(__dirname, 'plugins', 'relayPlugin');
+const pkg = readPkgUp.sync().pkg;
+
+const relayPlugin = !!pkg.dependencies['react-relay']
+  ? [path.join(__dirname, 'plugins', 'relayPlugin')]
+  : [];
 
 let plugins = [
   'transform-export-extensions',
@@ -14,7 +19,7 @@ switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
   case 'development':
     plugins = [
       ...plugins,
-      relayPlugin,
+      ...relayPlugin,
       'react-hot-loader/babel',
     ];
     break;
@@ -22,7 +27,7 @@ switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
   case 'production':
     plugins = [
       ...plugins,
-      relayPlugin,
+      ...relayPlugin,
     ];
     break;
   case 'test':
@@ -31,7 +36,7 @@ switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
         plugins = [
           ...plugins,
           testPlugins,
-          relayPlugin,
+          ...relayPlugin,
         ];
         break;
       case 'watch':
@@ -50,8 +55,7 @@ switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
 
 module.exports = {
   babelrc: false,
-  presets: [
-    // Order is important here
+  presets: [ // Order is important here
     ['latest', {
       es2015: { modules: false, loose: true }
     }],
