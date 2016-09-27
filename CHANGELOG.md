@@ -1,3 +1,9 @@
+## [0.2.3](https://github.com/shanewilson/hobbes/compare/0.2.2...0.2.3) (2016-09-27)
+
+### :sparkles: Features
+
+- use :bookmark: for release commit ([15c8311](https://github.com/shanewilson/hobbes/commit/15c8311a87ef85b77b69155e7d2c5e59a6e3f904))
+
 ## [0.2.2](https://github.com/shanewilson/hobbes/compare/3c61046c5a34f4ca713863f62f9343ddbc50a15a...0.2.2) (2016-09-27)
 
 ### :sparkles: Features
