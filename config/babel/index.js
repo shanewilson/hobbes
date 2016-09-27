@@ -2,48 +2,52 @@ const path = require('path');
 
 const relayPlugin = path.join(__dirname, 'plugins', 'relayPlugin');
 
-const commonPlugins = [
-  ['transform-runtime', {
-    helpers: false,
-    polyfill: false,
-    regenerator: true,
-  }],
+let plugins = [
+  'transform-export-extensions',
 ];
 
 const testPlugins = [
   'transform-es2015-modules-commonjs',
 ];
 
+switch(process.env.BABEL_ENV) {
+  case 'development':
+    plugins = [
+      ...plugins,
+      relayPlugin,
+      'react-hot-loader/babel',
+    ];
+    break;
+  case 'stage':
+  case 'production':
+    plugins = [
+      ...plugins,
+      relayPlugin,
+    ];
+    break;
+  case 'test':
+    switch(process.env.TEST_ENV) {
+      case 'single':
+        plugins = [
+          ...plugins,
+          testPlugins,
+          relayPlugin,
+        ];
+        break;
+      case 'watch':
+        plugins = [
+          ...plugins,
+          testPlugins,
+        ];
+      }
+}
+
 module.exports = {
   babelrc: false,
   presets: [
-    'react',
+    'react-app',
     ['es2015', { modules: false, loose: true }],
-    'stage-1',
   ],
-  env: {
-    development: {
-      plugins: [
-        ...commonPlugins,
-        relayPlugin,
-        'react-hot-loader/babel',
-        'transform-react-jsx-source',
-      ],
-    },
-    stage: { plugins: [...commonPlugins, relayPlugin] },
-    production: { plugins: [
-      ...commonPlugins,
-      relayPlugin,
-      'transform-react-constant-elements',
-    ] },
-    single: { plugins: [
-      ...commonPlugins,
-      testPlugins,
-      relayPlugin,
-    ] },
-    watch: { plugins: [
-      ...commonPlugins,
-      testPlugins,
-    ] },
-  },
+  plugins,
 };
+

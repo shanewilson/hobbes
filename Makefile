@@ -56,21 +56,19 @@ browser:
 	@$(PRINT_OK)
 
 .PHONY: test-watch
-test-watch: export BABEL_ENV=watch
 test-watch: export TEST_ENV=watch
 test-watch: test
 
 .PHONY: test-ci
-test-ci: export BABEL_ENV=single
 test-ci: export TEST_ENV=ci
 test-ci: test
 
 .PHONY: test-once
-test-once: export BABEL_ENV=single
 test-once: export TEST_ENV=single
 test-once: test
 
 .PHONY: test
+test: export BABEL_ENV=test
 test: export NODE_ENV=development
 test:
 	$(Q) node ${FDT_DIR}/bin/runTests
