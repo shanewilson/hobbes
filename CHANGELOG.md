@@ -1,5 +1,15 @@
 ## 0.2.0 (2016-09-27)
 
+- :bug::apple: [[DCC-123](jira/DCC-123)] better changelog ([467e294](https://github.com/shanewilson/hobbes/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
+- :sparkles: load relay plugin only when relay used ([dfd0368](https://github.com/shanewilson/hobbes/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
+
+## 0.2.0 (2016-09-27)
+
+- :bug::apple: [[DCC-123](undefined/DCC-123)] better changelog ([467e294](https://github.com/undefined/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
+- :sparkles: load relay plugin only when relay used ([dfd0368](https://github.com/undefined/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
+
+## 0.2.0 (2016-09-27)
+
 - :sparkles: load relay plugin only when relay used ([dfd0368](https://github.com/undefined/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
 
 ## 0.2.0 (2016-09-27)

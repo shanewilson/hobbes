@@ -29,6 +29,22 @@ const formatLines = (line, matchedPr) => {
 
 const tasks = new Listr([
   {
+    title: 'Checking GIT_REPO is set',
+    task: () => {
+      if (!process.env.GIT_REPO) {
+        throw new Error('Need to set GIT_REPO');
+      }
+    },
+  },
+  {
+    title: 'Checking JIRA_URL is set',
+    task: () => {
+      if (!process.env.JIRA_URL) {
+        throw new Error('Need to set JIRA_URL');
+      }
+    },
+  },
+  {
     title: 'Gathering required info',
     task: () => new Listr([
       {
@@ -53,7 +69,6 @@ const tasks = new Listr([
       },
       {
         title: 'Fetching Pull Requests',
-        skip: () => !process.env.GIT_REPO,
         task: () => (
           execa.stdout('curl', [`https://api.github.com/repos/${process.env.GIT_REPO}/pulls?sort=updated&direction=desc&state=closed`]).then(prs => {
             PRS = JSON.parse(prs).filter(pr => pr.merged_at).map(p => ({
@@ -71,9 +86,7 @@ const tasks = new Listr([
     task: () => {
       const lines = LINES.reduce((acc, l) => {
         const [tickettitle, commit, short] = l.split('__SPLIT__');
-        console.log(tickettitle);
         const match = tickettitle.match(/^(:(.+?):(:.+:)?) (\[(.*)\] )?(.*)$/);
-        console.log(match);
         if (!match) return acc;
         const [_1, emojis, type, _2, _3, tickets, title] = match;
 
@@ -84,7 +97,6 @@ const tasks = new Listr([
           commit,
           short,
         };
-        console.log(line);
         const matchedPr = PRS.find(pr => pr.mergeCommitSha === line.commit);
         return Object.assign({}, acc, {
           [type]: [...(acc[type] || []), formatLines(line, matchedPr)],

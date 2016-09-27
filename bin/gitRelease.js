@@ -25,7 +25,7 @@ const prechecks = new Listr([
   {
     title: 'Checking JIRA_URL is set',
     task: () => {
-      if (!process.env.GIT_REPO) {
+      if (!process.env.JIRA_URL) {
         throw new Error('Need to set JIRA_URL');
       }
     },
