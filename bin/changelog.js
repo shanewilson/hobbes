@@ -46,9 +46,17 @@ const changelog = new Listr([
           {
             title: 'Finding latest tag',
             skip: () => FROM_TAG,
-            task: () => execa.stdout('git', ['describe', '--abbrev=0', '--tags']).then(tag => {
-              FROM_TAG = tag;
-            }),
+            task: () => {
+              try {
+                return execa.stdout('git', ['describe', '--abbrev=0', '--tags']).then(tag => {
+                  FROM_TAG = tag;
+                });
+              } catch (err) {
+                return execa.stdout('git', ['rev-list', '--max-parents=0', 'HEAD']). then(commit => {
+                  FROM_TAG = commit;
+                });
+              }
+            },
           },
           {
             title: 'Finding commits',
