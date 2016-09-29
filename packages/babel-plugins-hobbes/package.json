@@ -1,13 +1,13 @@
 {
   "name": "babel-plugins-hobbes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "relay.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "hobbes-config": "0.1.0",
+    "hobbes-config": "^0.2.1",
     "babel-relay-plugin": "0.9.3",
     "chalk": "1.1.3"
   },

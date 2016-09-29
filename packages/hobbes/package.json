@@ -1,19 +1,19 @@
 {
   "name": "hobbes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "babel-preset-hobbes": "^0.2.0",
-    "babel-plugins-hobbes": "^0.2.0",
-    "eslint-config-hobbes": "^0.2.0",
-    "hobbes-config": "0.1.0",
-    "hobbes-scripts": "^0.2.0",
-    "webpack-config-hobbes": "^0.2.0",
-    "jest-config-hobbes": "^0.2.0"
+    "babel-preset-hobbes": "^0.2.1",
+    "babel-plugins-hobbes": "^0.2.1",
+    "eslint-config-hobbes": "^0.2.1",
+    "hobbes-config": "^0.2.1",
+    "hobbes-scripts": "^0.2.1",
+    "webpack-config-hobbes": "^0.2.1",
+    "jest-config-hobbes": "^0.2.1"
   },
   "author": "",
   "license": "ISC"
