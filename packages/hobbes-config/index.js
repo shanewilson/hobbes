@@ -12,7 +12,7 @@ config.set('path_project', process.env.PWD);
 // NOTE: Due to limitations with Webpack's custom require, which is used for
 // looking up all *.test.js files, if you edit dir_test you must also edit
 // the path in ~/karma.entry.js.
-config.set('dir_src', path.join(config.get('path_project'), 'src'));
+config.set('dir_packages', path.join(config.get('path_project'), 'packages'));
 config.set('dir_dist', path.join(config.get('path_project'), 'dist'));
 
 // ------------------------------------

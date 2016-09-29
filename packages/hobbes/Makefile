@@ -71,7 +71,7 @@ test:
 
 .PHONY: lint
 lint:
-	$(Q) eslint src --ext .js,.jsx
+	$(Q) eslint packages --ext .js,.jsx
 	@$(PRINT_OK)
 
 .PHONY: flow

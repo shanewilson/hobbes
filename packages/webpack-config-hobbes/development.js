@@ -6,7 +6,7 @@ const config = require('hobbes-config');
 const webpackConfig = require('./_base');
 
 const devServer = {
-  contentBase: config.get('dir_src'),
+  contentBase: config.get('dir_packages'),
   stats: {
     colors: true,
     hash: false,

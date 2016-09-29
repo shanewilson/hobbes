@@ -22,7 +22,7 @@ module.exports = merge(webpackConfig, {
     new webpack.optimize.CommonsChunkPlugin(LIBS_BUNDLE),
     new webpack.optimize.AggressiveMergingPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(path.join(config.get('path_project'), 'src', 'index.html')),
+      template: path.resolve(path.join(config.get('dir_packages'), 'root', 'index.html')),
       filename: '../index.html',
       inject: 'body',
       minify: {

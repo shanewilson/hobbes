@@ -1,10 +1,11 @@
 const path = require('path');
+const config = require('hobbes-config');
 
 module.exports = () => {
   const jestConfig = {
     cacheDirectory: '.jest',
     collectCoverageFrom: [
-      'src/js/**/*.js',
+      config.get('dir_packages') + '/**/*.js',
     ],
     moduleNameMapper: {
       '^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm)$': path.resolve(__dirname, 'fileMock.js'),
@@ -15,7 +16,7 @@ module.exports = () => {
 
     // These settings are needed because we are putting our source code
     // under /node_modules/ which is normally ignored by default
-    testPathDirs: ['src/js'],
+    testPathDirs: [config.get('dir_packages')],
     coveragePathIgnorePatterns: [],
     preprocessorIgnorePatterns: [],
     testPathIgnorePatterns: [],

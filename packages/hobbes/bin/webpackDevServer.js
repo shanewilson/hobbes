@@ -10,8 +10,8 @@ const webpackConfig = require('webpack-config-hobbes');
 const app = express();
 
 const isDevelopment = config.get('env').NODE_ENV === 'development';
-const staticDir = config.get(isDevelopment ? 'dir_src' : 'dir_dist');
-const indexFile = path.join(isDevelopment ? '' : config.get('globals').__BASE__, 'index.html');
+const staticDir = config.get(isDevelopment ? 'dir_packages' : 'dir_dist');
+const indexFile = path.join(isDevelopment ? 'root' : config.get('globals').__BASE__, 'index.html');
 
 app.use(gzipStatic(staticDir));
 
