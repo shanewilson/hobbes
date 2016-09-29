@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb', 'cleanjs'],
+  extends: ['airbnb', 'hobbes-base'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
@@ -11,16 +11,6 @@ module.exports = {
     },
   },
   rules: {
-    'no-underscore-dangle': 0,
-    'arrow-parens': 0,
-
-    // ###  import
-    // our src modules are in node_modules but not package.json
-    'import/no-extraneous-dependencies': 0,
-    // I just found these two kind of annoying
-    'import/no-named-as-default-member': 0,
-    'import/prefer-default-export': 0,
-
     // ###  react
     // we just use js for everything
     'react/jsx-filename-extension': 0,
@@ -30,20 +20,6 @@ module.exports = {
     // ###  jsx
     // doesn't check props for children
     'jsx-a11y/anchor-has-content': 0,
-
-    // ###  fp
-    // need nulls for GraphQL variables
-    'fp/no-nil': 0,
-    // Tests blow up with this
-    'fp/no-unused-expression': 0,
-
-    // ###  better
-    // we might want the use new Set/Map
-    'better/no-new': 0,
-    // already have a rule against nested ternary
-    'better/no-ifs': 0,
-    // Tests blow up with this
-    'better/explicit-return': 0,
 
     // ###  flowtype
     'flowtype/boolean-style': [2, 'boolean'],

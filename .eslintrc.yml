@@ -1,3 +1,14 @@
 ---
   extends:
-    - "airbnb"
+    - "hobbes-node"
+  rules:
+    no-unused-vars: 0
+    no-console: 0
+
+    fp/no-let: 0
+    fp/no-mutation: 0
+    fp/no-mutating-methods: 0
+    fp/no-throw: 0
+
+    import/no-dynamic-require: 0
+    import/no-unresolved: 0

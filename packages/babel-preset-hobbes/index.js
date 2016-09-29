@@ -15,7 +15,7 @@ const testPlugins = [
   'transform-es2015-modules-commonjs',
 ];
 
-switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
+switch (process.env.BABEL_ENV || process.env.NODE_ENV) {
   case 'development':
     plugins = [
       ...plugins,
@@ -31,7 +31,7 @@ switch(process.env.BABEL_ENV || process.env.NODE_ENV) {
     ];
     break;
   case 'test':
-    switch(process.env.TEST_ENV) {
+    switch (process.env.TEST_ENV) {
       case 'single':
         plugins = [
           ...plugins,
@@ -57,7 +57,7 @@ module.exports = {
   babelrc: false,
   presets: [ // Order is important here
     ['latest', {
-      es2015: { modules: false, loose: true }
+      es2015: { modules: false, loose: true },
     }],
     'react-app',
   ],

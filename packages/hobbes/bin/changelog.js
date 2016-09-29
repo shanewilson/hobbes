@@ -13,7 +13,7 @@ let LINES = [];
 let PRS = [];
 let LOGS;
 
-let emojiMapping = Object.assign({}, {
+const emojiMapping = Object.assign({}, {
   sparkles: 'Features',
   bug: 'Fixes',
   memo: 'Documentation',
@@ -21,7 +21,7 @@ let emojiMapping = Object.assign({}, {
 
 const formatLines = (line, matchedPr) => {
   const ls = [];
-  ls.push(`-`);
+  ls.push('-');
   if (line.emojis) {
     ls.push(line.emojis);
   }
