@@ -1,6 +1,6 @@
 const chalk = require('chalk');
-const config = require('./config');
-const devServer = require('./bin/webpackDevServer');
+const config = require('./packages/hobbes');
+const devServer = require('./packages/hobbes-scripts/webpackDevServer');
 
 const host = config.get('webpack_host');
 const port = config.get('webpack_port');

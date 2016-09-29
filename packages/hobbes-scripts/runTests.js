@@ -1,4 +1,4 @@
-const jestConfig = require('hobbes/jest');
+const jestConfig = require('jest-config-hobbes');
 const jest = require('jest');
 
 const argv = ['--config', JSON.stringify(jestConfig())];

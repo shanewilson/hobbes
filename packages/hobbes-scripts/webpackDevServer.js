@@ -4,8 +4,8 @@ const proxy = require('express-http-proxy');
 const gzipStatic = require('connect-gzip-static');
 const webpack = require('webpack');
 
-const config = require('../config');
-const webpackConfig = require('../webpack.config');
+const config = require('hobbes');
+const webpackConfig = require('webpack-config-hobbes');
 
 const app = express();
 
