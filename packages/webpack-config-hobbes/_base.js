@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 const config = require('hobbes-config');
-const babel = require('babel-preset-hobbes');
 
 module.exports = {
   target: 'web',
@@ -24,7 +23,10 @@ module.exports = {
         loader: 'babel',
         exclude: ['node_modules'],
         include: `${config.get('dir_src')}/js`,
-        query: babel,
+        query: {
+          babelrc: false,
+          presets: ['hobbes'],
+        },
       },
       {
         test: /\.json$/,

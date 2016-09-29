@@ -32,7 +32,7 @@ server-prod: build docker-build docker-run
 .PHONY: server
 server: export NODE_ENV=development
 server:
-	$(Q) node ${FDT_DIR}/server
+	$(Q) node ${FDT_DIR}/bin/server
 
 .PHONY: schema
 schema:
@@ -47,12 +47,7 @@ install:
 build: export NODE_ENV ?= stage
 build: clean-dist
 	@$(PRINT_ENV)
-	$(Q) webpack --config ${FDT_DIR}/webpack.config.js
-	@$(PRINT_OK)
-
-.PHONY: browser
-browser:
-	$(Q) wdio ${FDT_DIR}/wdio.conf.js
+	$(Q) webpack --config ${FDT_DIR}/bin/webpack.config.js
 	@$(PRINT_OK)
 
 .PHONY: test-watch
