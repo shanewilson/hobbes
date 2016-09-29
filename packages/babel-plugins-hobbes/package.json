@@ -1,6 +1,6 @@
 {
   "name": "babel-plugins-hobbes",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "relay.js",
   "scripts": {
