@@ -1,7 +1,7 @@
 // inside that file
 const chalk = require('chalk');
 const babelRelayPlugin = require('babel-relay-plugin');
-const config = require('hobbes');
+const config = require('hobbes-config');
 
 try {
   const schema = require(`${config.get('path_project')}/data/schema.json`);

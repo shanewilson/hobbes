@@ -1,13 +1,13 @@
 {
   "name": "babel-preset-hobbes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Babel preset for Hobbes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "babel-plugins-hobbes": "0.1.0",
+    "babel-plugins-hobbes": "^0.2.0",
     "read-pkg-up": "1.0.1",
     "babel-plugin-transform-export-extensions": "6.8.0",
     "babel-preset-react-app": "^0.2.1"

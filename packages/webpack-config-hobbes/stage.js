@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const HtmlRemove = require('./plugins/html-remove');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = require('hobbes');
+const config = require('hobbes-config');
 const webpackConfig = require('./_base');
 
 const LIBS_BUNDLE = 'libs';

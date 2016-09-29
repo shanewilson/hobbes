@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const config = require('hobbes');
+const config = require('hobbes-config');
 const babel = require('babel-preset-hobbes');
 
 module.exports = {

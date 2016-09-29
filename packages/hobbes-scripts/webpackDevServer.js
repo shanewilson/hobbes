@@ -4,7 +4,7 @@ const proxy = require('express-http-proxy');
 const gzipStatic = require('connect-gzip-static');
 const webpack = require('webpack');
 
-const config = require('hobbes');
+const config = require('hobbes-config');
 const webpackConfig = require('webpack-config-hobbes');
 
 const app = express();

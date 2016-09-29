@@ -3,7 +3,7 @@ const Listr = require('listr');
 const fs = require('graceful-fs');
 const readPkgUp = require('read-pkg-up');
 const dateFormat = require('dateformat');
-const config = require('hobbes');
+const config = require('hobbes-config');
 
 const pkg = readPkgUp.sync().pkg;
 
