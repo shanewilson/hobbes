@@ -1,3 +1,42 @@
+## [0.3.0](https://github.com/shanewilson/hobbes}/compare/3c61046c5a34f4ca713863f62f9343ddbc50a15a...0.3.0) (2016-09-30)
+
+### :package: Refactor
+
+- stuff ([#3](https://github.com/shanewilson/hobbes/pull/3))
+- split apart release process ([1835bbe](https://github.com/shanewilson/hobbes/commit/1835bbe6c32571aa06eb3890940e91fd440e7eef))
+- 000000000 111111111 222222222 333333333 444444444 555555555 666666666 777777777 888888888 ([7abab64](https://github.com/shanewilson/hobbes/commit/7abab64aa3b27625ce5ff5ec2abc173367b88c30))
+- update Make, eslint fixes ([53a07be](https://github.com/shanewilson/hobbes/commit/53a07bea11f7a83dd8ee85ac6a373d24f7342b83))
+- eslint updates ([b9a308c](https://github.com/shanewilson/hobbes/commit/b9a308cae3b509faec3e457b18a7a1ca38d4ada3))
+- add missing deps ([89375dd](https://github.com/shanewilson/hobbes/commit/89375ddae1e6bff4654bf8933ddcb063c907fac8))
+- clear out old code ([0e16373](https://github.com/shanewilson/hobbes/commit/0e16373427d6b4058499a895a0589f7e1fd90d2a))
+- move srcipts into hobbes ([f2e3083](https://github.com/shanewilson/hobbes/commit/f2e30838aac9fd85ad3635a00ae4608459c7cb27))
+- add config as pkg ([c5fba08](https://github.com/shanewilson/hobbes/commit/c5fba08a1a8c8fed68ffc1f296904bf02f1852a8))
+- add packages deps ([1d01e35](https://github.com/shanewilson/hobbes/commit/1d01e35cc1a9448304391d0768b2cb6fd5ed9e9e))
+- lerna test publish ([166b8cc](https://github.com/shanewilson/hobbes/commit/166b8cc3809a25dab97285e0518deadaac7cbdc4))
+- lerna bootstrap ([6302bc8](https://github.com/shanewilson/hobbes/commit/6302bc8236b245ff11b6439fec5d9c417b5cff25))
+- lerna init ([9b4c299](https://github.com/shanewilson/hobbes/commit/9b4c299947ca66b8320eba8db7bbe6c4e72937cb))
+- copy into /packages ([f0e67d8](https://github.com/shanewilson/hobbes/commit/f0e67d8c5a1e4fc8bd12ca2683d9800ddb3c8c6d))
+
+### :sparkles: Features
+
+- changelog generator uses squashed gh commits ([d4ba4b7](https://github.com/shanewilson/hobbes/commit/d4ba4b7c1bdd881c9c7e8733c919c3ec7ce6e1c5))
+- update config to use packages for app ([90973ac](https://github.com/shanewilson/hobbes/commit/90973acb083532574ae457e5d3ec55944af71406))
+- use :bookmark: for release commit ([15c8311](https://github.com/shanewilson/hobbes/commit/15c8311a87ef85b77b69155e7d2c5e59a6e3f904))
+- fall back to first commit ([d75917d](https://github.com/shanewilson/hobbes/commit/d75917dd5e567536ed12c9ff14ed3db5746752d8))
+- group changelog by type ([ea1ebc2](https://github.com/shanewilson/hobbes/commit/ea1ebc2262f764fc4a14e88a690805fe8164996f))
+- load relay plugin only when relay used ([dfd0368](https://github.com/shanewilson/hobbes/commit/dfd036823f823f5f43f1ebc3f9185d7ff2d9e011))
+
+### :books: Documentation
+
+- update package.jsons and License ([9b6e563](https://github.com/shanewilson/hobbes/commit/9b6e563fc48ea3db63131b0adf9b798ff5f61230))
+
+### :bug: Fixes
+
+- use first commit if no tag ([74caa85](https://github.com/shanewilson/hobbes/commit/74caa855b80f6c33bdac32f2c7d3f7b288c29a02))
+- fixes async CL ([817ce7d](https://github.com/shanewilson/hobbes/commit/817ce7dcc17eb4e84ff3d0df368970b05791efdb))
+- fix jira env check ([9fc5b0f](https://github.com/shanewilson/hobbes/commit/9fc5b0fbb8ddb861f75bf1e06ef5bfbc4753caf4))
+- :apple: [[DCC-123](https://github.com/shanewilson/hobbes/issues/DCC-123)] better changelog ([467e294](https://github.com/shanewilson/hobbes/commit/467e2947145c93a479b83cf94f1bc5eea3e2512b))
+
 ## [0.2.3](https://github.com/shanewilson/hobbes/compare/0.2.2...0.2.3) (2016-09-27)
 
 ### :sparkles: Features

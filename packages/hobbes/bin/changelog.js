@@ -7,7 +7,7 @@ const config = require('@shanewilson/hobbes-config');
 
 const pkg = readPkgUp.sync().pkg;
 
-const REPO_URL = pkg.repository.replace(/^git\+/, '').replace(/\.git$/, '')
+const REPO_URL = pkg.repository.url.replace(/^git\+/, '').replace(/\.git$/, '')
 let FROM_TAG = process.env.FROM_TAG;
 const TO_TAG = process.env.TO_TAG || 'HEAD';
 let LINES = [];
@@ -18,6 +18,7 @@ const emojiMapping = Object.assign({}, {
   bug: 'Fixes',
   books: 'Documentation',
   racehorse: 'Performance',
+  package: 'Refactor',
 }, (pkg.hobbes || {}).emojiMapping || {});
 
 const formatLines = (line, pr) => {
@@ -31,7 +32,7 @@ const formatLines = (line, pr) => {
     ls.push(`[${tickets}]`);
   }
   ls.push(line.title);
-  if (pr) ls.push(`([${pr}](${REPO_URL}/pull/${pr}))`);
+  if (pr) ls.push(`([#${pr}](${REPO_URL}/pull/${pr}))`);
   else ls.push(`([${line.short}](${REPO_URL}/commit/${line.commit}))`);
 
   return ls.join(' ');
@@ -70,10 +71,11 @@ const changelog = new Listr([
     task: () => {
       const lines = LINES.reduce((acc, l) => {
         const [tickettitle, commit, short] = l.split('__SPLIT__');
-        const match = tickettitle.match(/^(:(.+?):(:.+:)?) (\[(.*)\] )?(.*)( \(.*\))$/);
+        const match = tickettitle.match(/^(:(.+?):(:.+:)?) (\[(.*)\] )?(.*?)( \(#(.*)\))?$/);
+
         if (!match || !emojiMapping[match[2]]) return acc;
 
-        const [_1, _2, type, emojis, _3, tickets, title, _4, pr] = match;
+        const [_0, _1, type, emojis, _4, tickets, title, _7, pr] = match;
 
         const line = {
           title,
@@ -110,3 +112,14 @@ const changelog = new Listr([
 ]);
 
 module.exports = changelog;
+
+const tasks = new Listr([
+  {
+    title: 'Generating Changelog',
+    task: () => changelog,
+  },
+]);
+
+tasks.run().catch(err => {
+  console.error(err.message);
+});
