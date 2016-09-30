@@ -38,7 +38,7 @@ const formatLines = (line, pr) => {
   return ls.join(' ');
 };
 
-const changelog = new Listr([
+const tasks = new Listr([
   {
     title: 'Gathering required info',
     task: () => new Listr([
@@ -111,15 +111,10 @@ const changelog = new Listr([
   },
 ]);
 
-module.exports = changelog;
+module.exports = tasks;
 
-const tasks = new Listr([
-  {
-    title: 'Generating Changelog',
-    task: () => changelog,
-  },
-]);
-
-tasks.run().catch(err => {
-  console.error(err.message);
-});
+if (!process.env.RELEASE) {
+  tasks.run().catch(err => {
+    console.error(err.message);
+  });
+}

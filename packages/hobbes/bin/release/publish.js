@@ -8,6 +8,10 @@ const tasks = new Listr([
   },
 ]);
 
-tasks.run().catch(err => {
-  console.error(err.message);
-});
+module.exports = tasks;
+
+if (!process.env.RELEASE) {
+  tasks.run().catch(err => {
+    console.error(err.message);
+  });
+}

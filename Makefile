@@ -57,5 +57,6 @@ upgrade:
 	@$(PRINT_OK)
 
 .PHONY: release
+release: export RELEASE=1
 release:
 	$(Q) node packages/hobbes/bin/release/release

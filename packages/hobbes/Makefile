@@ -173,5 +173,5 @@ tag:
 publish:
 	$(Q) node bin/release/publish
 
-.PHONY: release
-release: preflight version changelog tag publish
+# .PHONY: release
+# release: preflight version changelog tag publish
