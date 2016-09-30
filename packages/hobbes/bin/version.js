@@ -12,7 +12,7 @@ const tasks = new Listr([
   },
   {
     title: 'Lerna Cross Package Updates',
-    task: () => execa('lerna', ['--repo-version', process.env.NEXT_VERSION, '--skip-git', '--skip-npm', '--yes']),
+    task: () => execa('lerna', ['publish', '--repo-version', process.env.NEXT_VERSION, '--skip-git', '--skip-npm', '--yes']),
   },
 ]);
 
