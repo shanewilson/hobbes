@@ -1,3 +1,9 @@
+## [0.4.2](https://github.com/shanewilson/hobbes}/compare/0.4.1...0.4.2) (2016-09-30)
+
+### :bug: Fixes
+
+- fix publishing ([9c1b609](https://github.com/shanewilson/hobbes/commit/9c1b6094b98fa9cf288dcb1aa72f53ce5ef8cd4f))
+
 ## [0.4.1](https://github.com/shanewilson/hobbes}/compare/0.4.0...0.4.1) (2016-09-30)
 
 
