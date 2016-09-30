@@ -58,6 +58,5 @@ upgrade:
 
 .PHONY: release
 release: export RELEASE=1
-release: export PINENTRY_USER_DATA="USE_CURSES=0"
 release:
 	$(Q) node packages/hobbes/bin/release/release
