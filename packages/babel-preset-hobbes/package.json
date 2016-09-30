@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/babel-preset-hobbes",
-  "version": "0.2.1",
+  "version": "0.4.0",
   "description": "Babel Preset used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@shanewilson/babel-plugins-hobbes": "0.2.1",
+    "@shanewilson/babel-plugins-hobbes": "^0.4.0",
     "read-pkg-up": "1.0.1",
     "babel-plugin-transform-export-extensions": "6.8.0",
     "babel-plugin-transform-es2015-modules-commonjs": "6.16.0",
