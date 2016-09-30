@@ -5,7 +5,7 @@ module.exports = () => {
   const jestConfig = {
     cacheDirectory: '.jest',
     collectCoverageFrom: [
-      config.get('dir_packages') + '/**/*.js',
+      `${config.get('dir_packages')}/**/*.js`,
     ],
     moduleNameMapper: {
       '^[./a-zA-Z0-9$_-]+\\.(jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm)$': path.resolve(__dirname, 'fileMock.js'),

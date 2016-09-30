@@ -63,7 +63,8 @@ const prechecks = new Listr([
         }
       },
       err => {
-        // Command fails with code 1 and no output if the tag does not exist, even though `--quiet` is provided
+        // Command fails with code 1 and no output if the tag does not exist,
+        // even though `--quiet` is provided
         // https://github.com/sindresorhus/np/pull/73#discussion_r72385685
         if (err.stdout !== '' || err.stderr !== '') {
           throw err;

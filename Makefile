@@ -23,27 +23,27 @@ all: install lint
 .PHONY: install
 install:
 	$(Q) npm install --loglevel error
-	$(Q) lerna bootstrap
-	$(Q) ln -s $(shell pwd)/packages/eslint-config-hobbes-node node_mudules/eslint-config-hobbes-node
+	$(Q) lerna bootstrap --yes
+	$(Q) ln -s $(shell pwd)/packages/eslint-config-hobbes-node node_modules/eslint-config-hobbes-node
 	@$(PRINT_OK)
 
 .PHONY: lint
 lint:
-	$(Q) eslint packages --ext .js,.jsx
+	$(Q) eslint packages --ext .js
 	@$(PRINT_OK)
 
 .PHONY: clean
-clean: clean-npm clean-lerna
+clean: clean-lerna clean-npm
 	@$(PRINT_OK)
 
 .PHONY: clean-lerna
-clean-dist:
-	$(Q) lerna clean
+clean-lerna:
+	lerna clean --yes
 	@$(PRINT_OK)
 
 .PHONY: clean-npm
-clean-deps:
-	$(Q) rm -rf node_modules
+clean-npm:
+	rm -rf node_modules
 	@$(PRINT_OK)
 
 .PHONY: update
