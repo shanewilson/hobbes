@@ -1,9 +1,5 @@
-const semver = require('semver');
 const execa = require('execa');
 const Listr = require('listr');
-const readPkgUp = require('read-pkg-up');
-
-const pkg = readPkgUp.sync().pkg;
 
 const tasks = new Listr([
   {

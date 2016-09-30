@@ -1,9 +1,5 @@
-const semver = require('semver');
 const execa = require('execa');
 const Listr = require('listr');
-const readPkgUp = require('read-pkg-up');
-
-const pkg = readPkgUp.sync().pkg;
 
 const tasks = new Listr([
   {
@@ -12,11 +8,12 @@ const tasks = new Listr([
   },
   {
     title: 'Git Tag Release',
-    task: () => execa('git', ['tag', process.env.NEXT_VERSION, '-m', process.env.NEXT_VERSION]),
+    task: () => execa('git', ['tag', process.env.NEXT_VERSION, '-sm', process.env.NEXT_VERSION]),
   },
-  // Publish
-  // Push Everything
-  // Git Release Notes
+  {
+    title: 'Pushing tags',
+    task: () => execa('git', ['push', '--follow-tags']),
+  },
 ]);
 
 tasks.run().catch(err => {

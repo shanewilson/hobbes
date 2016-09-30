@@ -155,16 +155,23 @@ endif
 
 .PHONY: preflight
 preflight:
-	$(Q) node bin/preflight
+	$(Q) node bin/release/preflight
 
 .PHONY: version
 version:
-	$(Q) node bin/version
+	$(Q) node bin/release/version
 
 .PHONY: changelog
 changelog:
-	$(Q) node bin/changelog
+	$(Q) node bin/release/changelog
+
+.PHONY: tag
+tag:
+	$(Q) node bin/release/tag
+
+.PHONY: publish
+publish:
+	$(Q) node bin/release/publish
 
 .PHONY: release
-release:
-	$(Q) node bin/release
+release: preflight version changelog tag publish
