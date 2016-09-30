@@ -153,6 +153,18 @@ endif
 endif
 endif
 
-.PHONY: git-release
-git-release:
-	$(Q) node ${FDT_DIR}/bin/gitRelease
+.PHONY: preflight
+preflight:
+	$(Q) node bin/preflight
+
+.PHONY: version
+version:
+	$(Q) node bin/version
+
+.PHONY: changelog
+changelog:
+	$(Q) node bin/changelog
+
+.PHONY: release
+release:
+	$(Q) node bin/release

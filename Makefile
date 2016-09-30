@@ -55,3 +55,19 @@ update:
 upgrade:
 	$(Q) npm-check -u
 	@$(PRINT_OK)
+
+.PHONY: preflight
+preflight:
+	$(Q) node packages/hobbes/bin/preflight
+
+.PHONY: version
+version:
+	$(Q) node packages/hobbes/bin/version
+
+.PHONY: changelog
+changelog:
+	$(Q) node packages/hobbes/bin/changelog
+
+.PHONY: release
+release:
+	$(Q) node packages/hobbes/bin/release
