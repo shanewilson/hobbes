@@ -9,11 +9,13 @@
   },
   "main": "index.js",
   "dependencies": {
-    "eslint": "3.6.0",
     "eslint-config-airbnb-base": "8.0.0",
-    "eslint-config-cleanjs": "^4.0.0",
-    "eslint-plugin-better": "^0.1.5",
-    "eslint-plugin-fp": "^2.2.0",
+    "eslint-config-cleanjs": "4.0.0",
+    "eslint-plugin-better": "0.1.5",
+    "eslint-plugin-fp": "2.2.0",
     "eslint-plugin-import": "1.16.0"
+  },
+  "peerDependencies": {
+    "eslint": "3.6.1"
   }
 }

@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@shanewilson/babel-preset-hobbes": "^0.2.1",
+    "@shanewilson/babel-preset-hobbes": "0.2.1",
     "babel-jest": "15.0.0",
     "@shanewilson/hobbes-config": "0.2.1"
   }

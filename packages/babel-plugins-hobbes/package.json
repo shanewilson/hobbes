@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@shanewilson/hobbes-config": "^0.2.1",
+    "@shanewilson/hobbes-config": "0.2.1",
     "babel-relay-plugin": "0.9.3",
     "chalk": "1.1.3"
   }
