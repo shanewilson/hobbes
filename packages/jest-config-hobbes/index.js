@@ -13,16 +13,7 @@ module.exports = () => {
     },
     scriptPreprocessor: path.resolve(__dirname, 'transform.js'),
     testEnvironment: 'jsdom',
-
-    // These settings are needed because we are putting our source code
-    // under /node_modules/ which is normally ignored by default
-    testPathDirs: [config.get('dir_packages')],
-    coveragePathIgnorePatterns: [],
-    preprocessorIgnorePatterns: [],
-    testPathIgnorePatterns: [],
-    haste: {
-      providesModuleNodeModules: ['.*'],
-    },
+    testPathDirs: [config.get('dir_packages')]
   };
 
   return jestConfig;
