@@ -1,3 +1,7 @@
+## [0.4.1](https://github.com/shanewilson/hobbes}/compare/0.4.0...0.4.1) (2016-09-30)
+
+
+
 ## [0.4.0](https://github.com/shanewilson/hobbes}/compare/3c61046c5a34f4ca713863f62f9343ddbc50a15a...0.4.0) (2016-09-30)
 
 ### :sparkles: Features
