@@ -1,6 +1,8 @@
 {
   "private": true,
+  "name": "hobbes",
   "version": "0.0.0",
+  "repository": "shanewilson/hobbes",
   "devDependencies": {
     "eslint": "3.6.1",
     "eslint-config-hobbes-base": "file:packages/eslint-config-hobbes-base",

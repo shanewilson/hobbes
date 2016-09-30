@@ -155,4 +155,4 @@ endif
 
 .PHONY: git-release
 git-release:
-	$(Q) node ${FDT_DIR}/bin/gitRelease
+	$(Q) node ${FDT_DIR}/bin/release
