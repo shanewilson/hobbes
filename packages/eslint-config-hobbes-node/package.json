@@ -1,15 +1,15 @@
 {
-  "name": "eslint-config-hobbes-node",
+  "name": "@shanewilson/eslint-config-hobbes-node",
   "version": "0.2.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "ESLint Config for Node used by Hobbes",
+  "license": "MIT",
+  "repository": "shanewilson/hobbes",
+  "engines": {
+    "node": ">=5"
   },
+  "main": "index.js",
   "dependencies": {
     "eslint": "3.6.0",
-    "eslint-config-hobbes-base": "0.2.1"
-  },
-  "author": "",
-  "license": "ISC"
+    "@shanewilson/eslint-config-hobbes-base": "0.2.1"
+  }
 }

@@ -1,11 +1,13 @@
 {
-  "name": "eslint-config-hobbes-base",
+  "name": "@shanewilson/eslint-config-hobbes-base",
   "version": "0.2.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Base ESLint Config used by Hobbes",
+  "license": "MIT",
+  "repository": "shanewilson/hobbes",
+  "engines": {
+    "node": ">=5"
   },
+  "main": "index.js",
   "dependencies": {
     "eslint": "3.6.0",
     "eslint-config-airbnb-base": "8.0.0",
@@ -13,7 +15,5 @@
     "eslint-plugin-better": "^0.1.5",
     "eslint-plugin-fp": "^2.2.0",
     "eslint-plugin-import": "1.16.0"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

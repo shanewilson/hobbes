@@ -4,7 +4,7 @@ const readPkgUp = require('read-pkg-up');
 const pkg = readPkgUp.sync().pkg;
 
 const relayPlugin = !!pkg.dependencies['react-relay']
-  ? [require('babel-plugins-hobbes/relay')]
+  ? [require('@shanewilson/babel-plugins-hobbes/relay')]
   : [];
 
 let plugins = [

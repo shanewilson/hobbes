@@ -1,16 +1,16 @@
 {
-  "name": "jest-config-hobbes",
+  "name": "@shanewilson/jest-config-hobbes",
   "version": "0.2.1",
-  "description": "",
+  "description": "Jest Config used by Hobbes",
+  "license": "MIT",
+  "repository": "shanewilson/hobbes",
+  "engines": {
+    "node": ">=5"
+  },
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "dependencies": {
-    "babel-preset-hobbes": "^0.2.1",
+    "@shanewilson/babel-preset-hobbes": "^0.2.1",
     "babel-jest": "15.0.0",
-    "hobbes-config": "0.2.1"
-  },
-  "author": "",
-  "license": "ISC"
+    "@shanewilson/hobbes-config": "0.2.1"
+  }
 }

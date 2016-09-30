@@ -1,16 +1,16 @@
 {
-  "name": "babel-plugins-hobbes",
+  "name": "@shanewilson/babel-plugins-hobbes",
   "version": "0.2.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Babel Plugins used by Hobbes",
+  "license": "MIT",
+  "repository": "shanewilson/hobbes",
+  "engines": {
+    "node": ">=5"
   },
+  "main": "index.js",
   "dependencies": {
-    "hobbes-config": "^0.2.1",
+    "@shanewilson/hobbes-config": "^0.2.1",
     "babel-relay-plugin": "0.9.3",
     "chalk": "1.1.3"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }

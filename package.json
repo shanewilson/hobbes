@@ -1,25 +1,9 @@
 {
-  "name": "hobbes",
   "private": true,
-  "version": "0.2.3",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shanewilson/hobbes.git"
-  },
-  "homepage": "https://github.com/shanewilson/hobbes",
-  "author": {
-    "name": "Shane Wilson",
-    "email": "shanezilla@gmail.com",
-    "url": "https://github.com/shanewilson/"
-  },
-  "dependencies": {},
   "devDependencies": {
     "eslint": "3.6.0",
     "eslint-config-hobbes-base": "file:packages/eslint-config-hobbes-base",
     "lerna": "2.0.0-beta.28",
     "npm-check": "^5.2.3"
-  },
-  "engines": {
-    "node": ">=5"
   }
 }

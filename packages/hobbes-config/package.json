@@ -1,11 +1,11 @@
 {
-  "name": "hobbes-config",
+  "name": "@shanewilson/hobbes-config",
   "version": "0.2.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Hobbes Config Object",
+  "license": "MIT",
+  "repository": "shanewilson/hobbes",
+  "engines": {
+    "node": ">=5"
   },
-  "author": "",
-  "license": "ISC"
+  "main": "index.js"
 }
