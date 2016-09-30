@@ -41,6 +41,7 @@ schema:
 .PHONY: install
 install:
 	$(Q) npm install --loglevel error
+	$(Q) lerna bootstrap --yes
 	@$(PRINT_OK)
 
 .PHONY: build
