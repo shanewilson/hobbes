@@ -1,3 +1,9 @@
+## [0.5.1](https://github.com/shanewilson/hobbes}/compare/0.5.0...0.5.1) (2016-10-01)
+
+### :package: Refactor
+
+- use lerna publish ([ace58da](https://github.com/shanewilson/hobbes/commit/ace58da24daeda2da9e28af9b2343acb98a5a304))
+
 ## [0.5.0](https://github.com/shanewilson/hobbes}/compare/0.4.2...0.5.0) (2016-09-30)
 
 
