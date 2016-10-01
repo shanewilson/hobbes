@@ -15,10 +15,6 @@ const tasks = new Listr([
     task: () => require('./changelog'),
   },
   {
-    title: 'Tag',
-    task: () => require('./tag'),
-  },
-  {
     title: 'Publish',
     task: () => require('./publish'),
   },

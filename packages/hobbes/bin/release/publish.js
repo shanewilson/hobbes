@@ -3,8 +3,8 @@ const Listr = require('listr');
 
 const tasks = new Listr([
   {
-    title: 'Publishing packages to NPM',
-    task: () => execa('lerna', ['exec', '--', 'npm', 'publish']),
+    title: 'Lerna Cross Package Publish',
+    task: () => execa('lerna', ['publish', '--repo-version', process.env.NEXT_VERSION, '--yes']),
   },
 ]);
 
