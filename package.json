@@ -1,7 +1,5 @@
 {
   "private": true,
-  "name": "hobbes",
-  "version": "0.0.0",
   "repository": "shanewilson/hobbes",
   "dependencies": {},
   "devDependencies": {
