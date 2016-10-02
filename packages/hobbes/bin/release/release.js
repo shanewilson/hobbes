@@ -7,6 +7,10 @@ const tasks = new Listr([
     task: () => require('./preflight'),
   },
   {
+    title: 'Version',
+    task: () => require('./version'),
+  },
+  {
     title: 'Changelog',
     task: () => require('./changelog'),
   },

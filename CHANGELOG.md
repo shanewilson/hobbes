@@ -1,3 +1,11 @@
+## [0.5.3](https://github.com/shanewilson/hobbes}/compare/v0.5.2...0.5.3) (2016-10-02)
+
+
+
+## [0.5.2](https://github.com/shanewilson/hobbes}/compare/v0.5.1...0.5.2) (2016-10-02)
+
+
+
 ## [0.5.1](https://github.com/shanewilson/hobbes}/compare/0.5.0...0.5.1) (2016-10-01)
 
 ### :package: Refactor

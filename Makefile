@@ -23,7 +23,6 @@ all: install lint
 .PHONY: install
 install:
 	$(Q) npm install --loglevel error
-	$(Q) lerna bootstrap --yes
 	$(Q) ln -s $(shell pwd)/packages/eslint-config-hobbes-node node_modules/eslint-config-hobbes-node
 	@$(PRINT_OK)
 
