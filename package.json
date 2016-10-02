@@ -10,5 +10,8 @@
     "lerna": "2.0.0-beta.29",
     "np": "2.9.0",
     "npm-check": "5.2.3"
+  },
+  "scripts": {
+    "postinstall": "lerna bootstrap --yes"
   }
 }
