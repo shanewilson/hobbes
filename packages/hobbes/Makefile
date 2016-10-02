@@ -176,4 +176,4 @@ publish:
 .PHONY: release
 release: export RELEASE=1
 release:
-	$(Q) node packages/hobbes/bin/release/release
+	$(Q) node bin/release/release
