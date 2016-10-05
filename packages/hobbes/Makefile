@@ -80,17 +80,22 @@ flow:
 	$(Q) flow check
 
 .PHONY: clean
-clean: clean-dist clean-deps
+clean: clean-dist clean-lerna clean-npm
+	@$(PRINT_OK)
+
+.PHONY: clean-lerna
+clean-lerna:
+	$(Q) lerna clean --yes
+	@$(PRINT_OK)
+
+.PHONY: clean-npm
+clean-npm:
+	$(Q) rm -rf node_modules
 	@$(PRINT_OK)
 
 .PHONY: clean-dist
 clean-dist:
 	$(Q) rm -rf dist
-	@$(PRINT_OK)
-
-.PHONY: clean-deps
-clean-deps:
-	$(Q) rm -rf node_modules
 	@$(PRINT_OK)
 
 .PHONY: update
