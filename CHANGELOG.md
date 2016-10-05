@@ -1,3 +1,9 @@
+## [0.5.17](https://github.com/shanewilson/hobbes}/compare/v0.5.16...0.5.17) (2016-10-05)
+
+### :bug: Fixes
+
+- put back git check ([4ace4a6](https://github.com/shanewilson/hobbes/commit/4ace4a6ab4bdee95480775cd8e15a2ce6d330c28))
+
 ## [0.5.16](https://github.com/shanewilson/hobbes}/compare/v0.5.15...0.5.16) (2016-10-05)
 
 ### :bug: Fixes
