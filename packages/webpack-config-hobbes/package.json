@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/webpack-config-hobbes",
-  "version": "0.5.11",
+  "version": "0.5.13",
   "description": "Webpack Config used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
