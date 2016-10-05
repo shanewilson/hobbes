@@ -1,3 +1,9 @@
+## [0.5.10](https://github.com/shanewilson/hobbes}/compare/v0.5.9...0.5.10) (2016-10-05)
+
+### :package: Refactor
+
+- remove lerna from hobbes ([3f78497](https://github.com/shanewilson/hobbes/commit/3f7849770922f3d601c2636a333d306e04a29503))
+
 ## [0.5.9](https://github.com/shanewilson/hobbes}/compare/v0.5.8...0.5.9) (2016-10-05)
 
 ### :package: Refactor
