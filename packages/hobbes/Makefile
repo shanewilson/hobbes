@@ -160,25 +160,25 @@ endif
 
 .PHONY: preflight
 preflight:
-	$(Q) node bin/release/preflight
+	$(Q) node ${FDT_DIR}/bin/release/preflight
 
 .PHONY: version
 version:
-	$(Q) node bin/release/version
+	$(Q) node ${FDT_DIR}/bin/release/version
 
 .PHONY: changelog
 changelog:
-	$(Q) node bin/release/changelog
+	$(Q) node ${FDT_DIR}/bin/release/changelog
 
 .PHONY: tag
 tag:
-	$(Q) node bin/release/tag
+	$(Q) node ${FDT_DIR}/bin/release/tag
 
 .PHONY: publish
 publish:
-	$(Q) node bin/release/publish
+	$(Q) node ${FDT_DIR}/bin/release/publish
 
 .PHONY: release
 release: export RELEASE=1
 release:
-	$(Q) node bin/release/release
+	$(Q) node ${FDT_DIR}/bin/release/release
