@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/eslint-config-hobbes-react",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "description": "ESLint Config for React used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@shanewilson/eslint-config-hobbes-base": "^0.4.0",
+    "@shanewilson/eslint-config-hobbes-base": "^0.5.4",
     "babel-eslint": "7.0.0",
     "eslint-config-airbnb": "12.0.0",
     "eslint-plugin-flowtype": "2.19.0",
@@ -17,6 +17,6 @@
     "eslint-plugin-react": "6.3.0"
   },
   "peerDependencies": {
-    "eslint": "3.6.1"
+    "eslint": ">3"
   }
 }

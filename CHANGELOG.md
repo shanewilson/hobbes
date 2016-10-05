@@ -1,3 +1,7 @@
+## [0.5.4](https://github.com/shanewilson/hobbes}/compare/v0.5.3...0.5.4) (2016-10-05)
+
+
+
 ## [0.5.3](https://github.com/shanewilson/hobbes}/compare/v0.5.2...0.5.3) (2016-10-02)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/eslint-config-hobbes-node",
-  "version": "0.4.0",
+  "version": "0.5.4",
   "description": "ESLint Config for Node used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
@@ -9,9 +9,9 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@shanewilson/eslint-config-hobbes-base": "^0.4.0"
+    "@shanewilson/eslint-config-hobbes-base": "^0.5.4"
   },
   "peerDependencies": {
-    "eslint": "3.6.1"
+    "eslint": ">3"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/jest-config-hobbes",
-  "version": "0.5.0",
+  "version": "0.5.4",
   "description": "Jest Config used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
@@ -10,7 +10,7 @@
   "main": "index.js",
   "dependencies": {
     "@shanewilson/babel-preset-hobbes": "^0.5.0",
-    "babel-jest": "15.0.0",
-    "@shanewilson/hobbes-config": "^0.4.0"
+    "@shanewilson/hobbes-config": "^0.4.0",
+    "babel-jest": "16.0.0"
   }
 }
