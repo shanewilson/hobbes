@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/hobbes",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Hands Off Bbuild System for Relay/React",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
@@ -14,7 +14,7 @@
     "@shanewilson/eslint-config-hobbes-react": "^0.5.4",
     "@shanewilson/hobbes-config": "^0.4.0",
     "@shanewilson/jest-config-hobbes": "^0.5.4",
-    "@shanewilson/webpack-config-hobbes": "^0.5.0",
+    "@shanewilson/webpack-config-hobbes": "^0.5.5",
     "chalk": "1.1.3",
     "connect-gzip-static": "1.0.0",
     "dateformat": "1.0.12",

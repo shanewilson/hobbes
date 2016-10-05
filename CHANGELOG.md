@@ -1,3 +1,9 @@
+## [0.5.5](https://github.com/shanewilson/hobbes}/compare/v0.5.4...0.5.5) (2016-10-05)
+
+### :sparkles: Features
+
+- add more laoders to webpack config ([03cff1c](https://github.com/shanewilson/hobbes/commit/03cff1c09789b756ccd0d410c9376bd750d03bb0))
+
 ## [0.5.4](https://github.com/shanewilson/hobbes}/compare/v0.5.3...0.5.4) (2016-10-05)
 
 
