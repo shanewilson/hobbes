@@ -8,7 +8,6 @@
     "eslint": "3.7.1",
     "eslint-config-hobbes-base": "file:packages/eslint-config-hobbes-base",
     "lerna": "2.0.0-beta.29",
-    "np": "2.9.0",
     "npm-check": "5.2.3"
   },
   "scripts": {
