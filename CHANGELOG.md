@@ -1,3 +1,9 @@
+## [0.5.11](https://github.com/shanewilson/hobbes}/compare/v0.5.10...0.5.11) (2016-10-05)
+
+### :bug: Fixes
+
+- more namespace fixes ([486eb18](https://github.com/shanewilson/hobbes/commit/486eb1819908507343bd15cb085c61606d9776c1))
+
 ## [0.5.10](https://github.com/shanewilson/hobbes}/compare/v0.5.9...0.5.10) (2016-10-05)
 
 ### :package: Refactor
