@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const findCacheDir = require('find-cache-dir');
 
 const config = require('hobbes-config');
 
@@ -26,11 +27,33 @@ module.exports = {
         query: {
           babelrc: false,
           presets: ['hobbes'],
+          cacheDirectory: findCacheDir({
+            name: 'webpack-config-hobbes'
+          })
         },
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css',
       },
       {
         test: /\.json$/,
         loader: 'json',
+      },
+      {
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'file',
+        query: {
+          name: '[name].[hash:8].[ext]',
+        },
+      },
+      {
+        test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: '[name].[hash:8].[ext]',
+        },
       },
     ],
     noParse: [/\.min\.js$/],
