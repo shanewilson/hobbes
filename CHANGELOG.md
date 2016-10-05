@@ -1,3 +1,9 @@
+## [0.5.14](https://github.com/shanewilson/hobbes}/compare/v0.5.13...0.5.14) (2016-10-05)
+
+### :sparkles: Features
+
+- lerna clean ([87afb21](https://github.com/shanewilson/hobbes/commit/87afb2148d7996fa171c5dba3aa492f8176a08e5))
+
 ## [0.5.13](https://github.com/shanewilson/hobbes}/compare/v0.5.12...0.5.13) (2016-10-05)
 
 
