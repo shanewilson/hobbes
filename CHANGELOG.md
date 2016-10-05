@@ -1,3 +1,9 @@
+## [0.5.9](https://github.com/shanewilson/hobbes}/compare/v0.5.8...0.5.9) (2016-10-05)
+
+### :package: Refactor
+
+- move lerna into hobbes ([e649beb](https://github.com/shanewilson/hobbes/commit/e649bebb5f4c622925003a9b6036cc9d6eb986cd))
+
 ## [0.5.8](https://github.com/shanewilson/hobbes}/compare/v0.5.7...0.5.8) (2016-10-05)
 
 ### :bug: Fixes
