@@ -12,6 +12,6 @@
     "@shanewilson/eslint-config-hobbes-base": "^0.5.4"
   },
   "peerDependencies": {
-    "eslint": ">3"
+    "eslint": ">=3"
   }
 }

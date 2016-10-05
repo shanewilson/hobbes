@@ -16,6 +16,6 @@
     "eslint-plugin-import": "1.16.0"
   },
   "peerDependencies": {
-    "eslint": ">3"
+    "eslint": ">=3"
   }
 }
