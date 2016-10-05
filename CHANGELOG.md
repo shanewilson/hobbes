@@ -1,3 +1,9 @@
+## [0.5.6](https://github.com/shanewilson/hobbes}/compare/v0.5.5...0.5.6) (2016-10-05)
+
+### :package: Refactor
+
+- adds peer deps to hobbes package ([50f7e75](https://github.com/shanewilson/hobbes/commit/50f7e75f6b961e580fdce0436d9f2038ddd4d3d4))
+
 ## [0.5.5](https://github.com/shanewilson/hobbes}/compare/v0.5.4...0.5.5) (2016-10-05)
 
 ### :sparkles: Features

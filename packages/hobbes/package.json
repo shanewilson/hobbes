@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/hobbes",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Hands Off Bbuild System for Relay/React",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
