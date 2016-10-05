@@ -67,14 +67,14 @@ const gitChecks = new Listr([
       }
     }),
   },
-  // {
-  //   title: 'Check local working tree',
-  //   task: () => execa.stdout('git', ['status', '--porcelain']).then(status => {
-  //     if (status !== '') {
-  //       throw new Error('Unclean working tree. Commit or stash changes first.');
-  //     }
-  //   }),
-  // },
+  {
+    title: 'Check local working tree',
+    task: () => execa.stdout('git', ['status', '--porcelain']).then(status => {
+      if (status !== '') {
+        throw new Error('Unclean working tree. Commit or stash changes first.');
+      }
+    }),
+  },
   {
     title: 'Check git tag existence',
     task: () => execa('git', ['fetch'])
