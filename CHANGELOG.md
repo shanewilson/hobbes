@@ -1,3 +1,9 @@
+## [0.5.8](https://github.com/shanewilson/hobbes}/compare/v0.5.7...0.5.8) (2016-10-05)
+
+### :bug: Fixes
+
+- add missing name space to imports ([b3e57fe](https://github.com/shanewilson/hobbes/commit/b3e57fe4e4aa6433f856800e00a55fb4ba615864))
+
 ## [0.5.7](https://github.com/shanewilson/hobbes}/compare/v0.5.6...0.5.7) (2016-10-05)
 
 ### :package: Refactor

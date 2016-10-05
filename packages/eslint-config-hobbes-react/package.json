@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/eslint-config-hobbes-react",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "ESLint Config for React used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
