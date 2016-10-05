@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/jest-config-hobbes",
-  "version": "0.5.8",
+  "version": "0.5.12",
   "description": "Jest Config used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
