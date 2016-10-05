@@ -32,7 +32,9 @@
     "sync-request": "3.0.1",
     "webpack": "2.1.0-beta.13",
     "webpack-dev-middleware": "1.8.3",
-    "webpack-hot-middleware": "2.12.2"
+    "webpack-hot-middleware": "2.12.2",
+    "babel-core": "6.16.0",
+    "eslint": "3.7.1"
   },
   "peerDependencies": {
     "react": "15.3.2"
