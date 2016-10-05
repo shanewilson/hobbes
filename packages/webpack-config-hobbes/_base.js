@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const findCacheDir = require('find-cache-dir');
 
-const config = require('hobbes-config');
+const config = require('@shanewilson/hobbes-config');
 
 module.exports = {
   target: 'web',
@@ -26,7 +26,7 @@ module.exports = {
         include: `${config.get('dir_packages')}`,
         query: {
           babelrc: false,
-          presets: ['hobbes'],
+          presets: ['@shanewilson/hobbes'],
           cacheDirectory: findCacheDir({
             name: 'webpack-config-hobbes'
           })

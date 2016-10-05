@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('hobbes-config');
+const config = require('@shanewilson/hobbes-config');
 
 module.exports = () => {
   const jestConfig = {

@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['hobbes-base'],
+  extends: ['@shanewilson/hobbes-base'],
   env: {
     node: true,
   },

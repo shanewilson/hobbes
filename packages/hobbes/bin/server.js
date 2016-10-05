@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const config = require('hobbes-config');
+const config = require('@shanewilson/hobbes-config');
 const devServer = require('./webpackDevServer');
 
 const host = config.get('webpack_host');

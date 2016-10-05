@@ -5,7 +5,7 @@ const path = require('path');
 const { introspectionQuery } = require('graphql/utilities');
 const request = require('sync-request');
 const chalk = require('chalk');
-const config = require('hobbes-config');
+const config = require('@shanewilson/hobbes-config');
 
 const apiUrl = config.get('proxy');
 const graphqlHubUrl = `${apiUrl}/graphql`;

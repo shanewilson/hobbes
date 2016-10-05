@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
-const config = require('hobbes-config');
+const config = require('@shanewilson/hobbes-config');
 const webpackConfig = require('./_base');
 
 const devServer = {

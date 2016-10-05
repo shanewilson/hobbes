@@ -1,6 +1,6 @@
 ---
   extends:
-    - "hobbes-node"
+    - "@shanewilson/hobbes-node"
   rules:
     no-unused-vars: 0
     no-console: 0

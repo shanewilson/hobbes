@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb', 'hobbes-base'],
+  extends: ['airbnb', '@shanewilson/hobbes-base'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 6,
