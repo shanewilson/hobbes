@@ -1,1 +1,1 @@
-module.exports = require('webpack-config-hobbes');
+module.exports = require('@shanewilson/webpack-config-hobbes');

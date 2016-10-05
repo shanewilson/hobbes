@@ -5,7 +5,7 @@ const gzipStatic = require('connect-gzip-static');
 const webpack = require('webpack');
 
 const config = require('@shanewilson/hobbes-config');
-const webpackConfig = require('webpack-config-hobbes');
+const webpackConfig = require('@shanewilson/webpack-config-hobbes');
 
 const app = express();
 

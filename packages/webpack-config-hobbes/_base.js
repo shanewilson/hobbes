@@ -28,7 +28,7 @@ module.exports = {
           babelrc: false,
           presets: ['@shanewilson/hobbes'],
           cacheDirectory: findCacheDir({
-            name: 'webpack-config-hobbes'
+            name: '@shanewilson/webpack-config-hobbes'
           })
         },
       },
