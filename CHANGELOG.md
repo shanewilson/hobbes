@@ -1,3 +1,9 @@
+## [0.5.7](https://github.com/shanewilson/hobbes}/compare/v0.5.6...0.5.7) (2016-10-05)
+
+### :package: Refactor
+
+- move peer into deps ([c80084b](https://github.com/shanewilson/hobbes/commit/c80084bfd92716f0c9ca6780f4530f1cfab12872))
+
 ## [0.5.6](https://github.com/shanewilson/hobbes}/compare/v0.5.5...0.5.6) (2016-10-05)
 
 ### :package: Refactor

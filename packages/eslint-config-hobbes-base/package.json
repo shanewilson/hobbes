@@ -1,6 +1,6 @@
 {
   "name": "@shanewilson/eslint-config-hobbes-base",
-  "version": "0.5.4",
+  "version": "0.5.7",
   "description": "Base ESLint Config used by Hobbes",
   "license": "MIT",
   "repository": "shanewilson/hobbes",
