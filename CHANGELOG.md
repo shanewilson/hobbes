@@ -1,3 +1,9 @@
+## [0.5.16](https://github.com/shanewilson/hobbes}/compare/v0.5.15...0.5.16) (2016-10-05)
+
+### :bug: Fixes
+
+- fix paths for release ([0c24d16](https://github.com/shanewilson/hobbes/commit/0c24d160c570e81aa6575d41fded034a51102ed5))
+
 ## [0.5.15](https://github.com/shanewilson/hobbes}/compare/v0.5.14...0.5.15) (2016-10-05)
 
 
